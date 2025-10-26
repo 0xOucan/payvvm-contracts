@@ -1,0 +1,2782 @@
+https://www.evvm.info/docs/intro
+Introduction
+What is an Abstract Blockchain?
+An abstract blockchain decouples blockchain infrastructure from physical implementation, opening possibilities that weren't viable before. Think of it as having your own blockchain without the headache of managing validators, nodes, and physical infrastructure.
+
+EVVM enables "virtual blockchains" to live securely on top of host blockchains, like having a virtual machine (VM) for blockchains.
+
+Revolutionary Architecture
+Virtual Blockchain Infrastructure
+Infrastructure Decoupling: Separate blockchain logic from physical infrastructure requirements
+Host Blockchain Security: Virtual blockchains inherit security from the underlying host network
+Zero Infrastructure Overhead: Get blockchain benefits without managing physical infrastructure
+Instant Deployment: Launch blockchain environments without complex setup procedures
+Vertical Scalability
+Multiple Virtual Blockchains: One or several EVVMs can operate on a single host blockchain
+Unprecedented Scaling: Achieve incredible vertical scalability through virtualization
+Resource Optimization: Efficient utilization of host blockchain resources
+Gasless Communication
+Fishing Spot System: Any communication medium that can transmit data can serve as a fishing spot
+Unlimited Channels: Traditional APIs, messaging systems, radio waves, or any data transmission method
+Flexible Input Reception: Any medium capable of receiving and processing transaction inputs
+Cost Elimination: Zero gas fees for transactions transmitted through alternative communication channels
+Target Audience
+For Organizations and Protocols
+EVVM enables any organization to leverage blockchain technology, including protocols, enterprises, banks, public sector, and many others:
+
+Custom On-Chain Infrastructure: Implement your own blockchain rules and optimizations
+Blockchain-as-a-Service: Access blockchain functionality without infrastructure management
+Flexible Implementation: Adapt blockchain technology to any specific requirements
+Operational Simplicity: Gain blockchain benefits without technical complexity
+For Developers
+EVVM is your new superpower with three development approaches:
+
+1. Deploy Your Own EVVM
+Create your own isolated, custom blockchain environment
+
+2. Build Within an EVVM
+Collaborate in larger, existing blockchain ecosystems
+
+3. Experiment Without Limits
+Use EVVM as a testing ground for future technologies
+
+EIP Innovation Laboratory
+Ethereum Improvement Proposal Testing: Test cutting-edge EIPs in controlled environments
+New Opcode Experimentation: Experiment with new opcodes and functions
+Real-World Validation: Validate proposals before mainnet deployment
+Ecosystem Acceleration: Accelerate innovation for the entire Web3 ecosystem
+Core Ecosystem Components
+EVVM Core Contract
+The central payment processing and token management hub that implements:
+
+Dual-Track Payment System: Optimized paths for stakers and non-stakers
+Token Abstractions: Internal token representations using EIP-191 signatures
+Cross-Chain Integration: Seamless asset transfers through Fisher Bridge
+Administrative Tools: Time-delayed governance and security controls
+Name Service
+Human-readable identity system providing:
+
+Username Registration: Secure, blockchain-based identity registration
+Custom Metadata: Extensible metadata system for usernames
+Payment Integration: Username-based payments across the ecosystem
+Administrative Governance: Decentralized governance for system management
+Staking System
+Principal token staking infrastructure featuring:
+
+Reward Distribution: Era-based rewards with deflationary mechanisms
+Enhanced Access: Priority processing and additional rewards for stakers
+Governance Participation: Staker involvement in system decisions
+Cross-System Integration: Staking benefits across all EVVM components
+Fisher Bridge
+Cross-chain infrastructure enabling:
+
+Multi-Chain Withdrawals: Secure asset transfers to external blockchains
+Operator Network: Decentralized bridge operators with incentive systems
+Security Limits: Configurable withdrawal limits and safety mechanisms
+Fee Integration: Comprehensive fee and reward distribution system
+Key Innovations
+Token Architecture
+Internal Abstractions: Tokens as internal representations, not separate contracts
+Permission-less Integration: Services integrate without special approvals
+Signature-Based Authorization: EIP-191 signatures for all operations
+Cross-Environment Compatibility: Seamless operation across different EVVM instances
+Economic Model
+Principal Token System: Deflationary tokenomics with era-based transitions
+Staker Incentives: Enhanced rewards and priority access for token holders
+Dynamic Fee Structure: Market-based pricing with user control
+Cross-Chain Economics: Integrated economic model spanning multiple blockchains
+Security Framework
+Cryptographic Authorization: EIP-191 signatures for all critical operations
+Time-Delayed Governance: Protection against malicious changes
+Multi-Layer Validation: Comprehensive security across all system interactions
+Replay Protection: Nonce-based systems preventing duplicate transactions
+The Future of Web3
+EVVM offers:
+
+Custom Blockchain Environments: Deploy tailored solutions without infrastructure overhead
+Vertical Scalability: Multiple abstract blockchains on single host networks
+Gasless Communication: Revolutionary methods eliminating gas fees for certain operations
+Innovation Laboratory: Real-world testing ground for Web3's future
+Get Started Today
+Ready to deploy your own EVVM abstract blockchain? Our Quickstart Guide provides everything you need to get up and running in minutes:
+
+Interactive Setup Wizard: Automated configuration and deployment
+Testnet Deployment: Deploy to Ethereum Sepolia, Arbitrum Sepolia, or custom networks
+Complete Ecosystem: All four core contracts deployed and verified automatically
+Local Development: Anvil support for local testing and development
+
+https://www.evvm.info/docs/QuickStart
+QuickStart
+Get up and running with EVVM Testnet Contracts in minutes using our interactive setup wizard. Deploy your EVVM virtual blockchain on your chosen host blockchain network.
+
+Prerequisites
+Ensure you have the following installed:
+
+Foundry - Solidity development toolkit (includes forge and cast) Install Foundry
+Node.js - For npm dependency management Install Node.js
+Git - Version control system Install Git
+1. Clone and Install
+git clone https://github.com/EVVM-org/Testnet-Contracts
+cd Testnet-Contracts
+make install
+
+The make install command will:
+
+Install npm dependencies
+Compile contracts with IR optimization (--via-ir)
+2. Environment Setup
+Create your .env file with required API keys:
+
+# Copy the example and fill in your values
+cp .env.example .env
+
+Add your configuration:
+
+You can get others in https://chainlist.org/
+
+RPC_URL_ETH_SEPOLIA="https://0xrpc.io/sep"
+
+RPC_URL_ARB_SEPOLIA="https://arbitrum-sepolia.therpc.io"
+
+ETHERSCAN_API=your_etherscan_api_key
+
+3. Secure Key Management
+Import your testnet private key securely using Foundry:
+
+cast wallet import defaultKey --interactive
+
+Security Note
+This command will prompt you to enter your private key securely. The key will be encrypted and stored locally by Foundry. Never commit real private keys to version control.
+
+4. Interactive Setup & Deployment
+Run the automated setup wizard:
+
+./evvm-init.sh
+
+The script will guide you through:
+
+Administrator Configuration
+Admin address - Contract administrator with governance privileges
+Golden Fisher address - Special sudo-like account with unrestricted golden staking privileges
+Activator address - Controls system activation and feature flags
+Golden Fisher Privileges
+The Golden Fisher is a special account that operates like a "sudo" user in the EVVM staking system:
+
+Direct Staking/Unstaking: Can perform staking and unstaking operations without any limits or restrictions
+No Signature Required: Operations are executed directly without signature verification
+Bypass All Constraints: Ignores normal staking rules, cooldown periods, and validation requirements
+Administrative Control: Intended for system administration and emergency operations
+Single Account: Only one Golden Fisher address can be configured per deployment
+This account should be secured with the highest level of protection as it has unrestricted access to staking operations.
+
+EVVM Metadata Configuration
+EVVM Name - Default: "EVVM" (your virtual blockchain's identity hosted on the selected network)
+EVVM ID - Unique identifier for your EVVM instance (multiple EVVMs can be deployed on the same host blockchain)
+Principal Token Name - Default: "Mate token" (the core ecosystem token)
+Principal Token Symbol - Default: "MATE"
+Advanced Configuration (Optional)
+Total Supply - Default: 2,033,333,333 × 10¹⁸ (total token economics)
+Era Tokens - Default: 1,016,666,666.5 × 10¹⁸ (rewards pool for staking system)
+Reward per operation - Default: 5 × 10¹⁸ (base reward for transaction processing)
+Principal Token Address Configuration
+The principalTokenAddress parameter is not included in the interactive setup wizard as it is an extremely advanced and sensitive configuration option.
+
+If you need to specify a custom principal token address:
+
+Modify the deployment script directly in script/DeployTestnet.s.sol
+Update the principalTokenAddress field in the EvvmMetadata struct (currently set to 0x0000000000000000000000000000000000000001)
+This option should only be used in very specific scenarios and requires deep understanding of the EVVM token architecture.
+
+CRITICAL
+Do NOT commit these changes to your repository as they will be discarded immediately
+
+The interactive wizard will prompt you to select a deployment network:
+
+Available Networks
+eth - Deploy EVVM on Ethereum Sepolia testnet (host blockchain)
+arb - Deploy EVVM on Arbitrum Sepolia testnet (host blockchain) (default)
+custom - Deploy EVVM on custom RPC URL (other EVM-compatible host blockchains)
+CRITICAL
+YOU MUST HAVE TOKENS IN THE NETWORK YOU WANT TO DEPLOY THE CONTRACTS FOR FAUCETS CHECK BELOW
+
+Here is a list of public faucets that you can get the test tokens from: https://ethglobal.com/faucet/
+
+https://cloud.google.com/application/web3/faucet/ethereum/sepolia https://www.alchemy.com/faucets/ethereum-sepolia https://faucets.chain.link/sepolia https://faucet.quicknode.com/ethereum/sepolia https://www.infura.io/zh/faucet/sepolia
+
+https://www.alchemy.com/faucets/arbitrum-sepolia https://faucets.chain.link/arbitrum-sepolia https://faucet.quicknode.com/arbitrum/sepolia https://www.l2faucet.com/arbitrum https://learnweb3.io/faucets/arbitrum_sepolia/
+
+Network Configuration
+The wizard will automatically handle host blockchain selection and deployment parameters based on your choice. Your EVVM virtual blockchain will be deployed as smart contracts on the selected host blockchain.
+
+note
+Error: Not all (5 / 6) contracts were verified!
+
+You will get this error is totally fine, there's a library that's giving errors to verify
+
+5. What Happens Next
+The evvm-init.sh script automatically:
+
+Validates Input - Ensures all addresses follow Ethereum format (0x + 40 hex characters) and numbers are valid
+
+Generates Configuration Files in the input/ directory:
+
+address.json - Administrator addresses for system governance
+evvmBasicMetadata.json - EVVM identity and principal token metadata
+evvmAdvancedMetadata.json - Supply parameters and reward distribution settings
+Displays Configuration Summary - Shows all entered values for confirmation
+
+Optional Immediate Deployment - Prompts to deploy contracts right after configuration
+
+Contract Deployment - Deploys the complete EVVM ecosystem on your chosen host blockchain using DeployTestnet.s.sol
+
+Contract Verification - Automatically verifies contracts on the host blockchain's block explorers using Etherscan API
+
+6. Manual Deployment (Alternative)
+If you prefer manual control or want to deploy your EVVM virtual blockchain later:
+
+# Deploy EVVM on Ethereum Sepolia (host blockchain)
+make deployTestnet NETWORK=eth
+
+# Deploy EVVM on Arbitrum Sepolia (host blockchain) (default)
+make deployTestnet NETWORK=arb
+
+# Deploy EVVM on custom EVM-compatible host blockchain
+forge script script/DeployTestnet.s.sol:DeployTestnet \
+  --rpc-url YOUR_RPC_URL \
+  --account defaultKey \
+  --broadcast \
+  --verify \
+  --etherscan-api-key $ETHERSCAN_API \
+  -vvvvvv
+
+Local Development
+For local testing with Anvil (local host blockchain):
+
+# Start local host blockchain
+make anvil
+
+# Deploy EVVM to local host blockchain (in another terminal)
+make deployLocalTestnet
+
+7. Verify Your Deployment
+After deployment, check the broadcast/ directory for:
+
+Transaction receipts - Detailed transaction information from the host blockchain
+Deployed contract addresses - EVVM contract addresses on the host blockchain network
+Gas usage reports - Deployment cost analysis on the host blockchain
+What Gets Deployed
+The EVVM virtual blockchain ecosystem consists of five main smart contracts deployed on your chosen host blockchain:
+
+Evvm.sol - Core virtual machine implementation with payment processing
+NameService.sol - Domain name resolution and identity system
+Staking.sol - Token staking, rewards mechanism, and fisher registration
+Estimator.sol - Staking rewards estimation and calculation system
+Treasury.sol - Asset deposit and withdrawal system between EVVM and host blockchains
+Understanding Your Deployment
+Transaction Flow - Learn how transactions are processed in your EVVM virtual blockchain
+Payment Functions - Explore available payment operations within the virtual blockchain
+Staking Operations - Understand staking functionality on your deployed EVVM
+8. Register Your EVVM in the Registry
+After successfully deploying your EVVM virtual blockchain, you need to register it in the Registry EVVM Contract to obtain an official EVVM ID that other services can use to discover and interact with your deployment.
+
+Why Register Your EVVM?
+The Registry EVVM Contract serves as the central directory for all EVVM deployments across testnets:
+
+Official Recognition: Get an official EVVM ID for your virtual blockchain
+Service Discovery: Allow other dApps and services to find your EVVM instance
+Network Integration: Enable integration with EVVM ecosystem tools and services
+Verification: Prove your deployment is legitimate and properly configured
+Registration Process
+Public Registration (Recommended)
+For most deployments, use the public registration function which automatically assigns IDs starting from 1000:
+
+Call the Registry Contract: Use the registerEvvm() function on the Registry EVVM Contract
+Provide Your Details:
+chainId: The testnet chain ID where you deployed (e.g., 11155111 for Sepolia, 421614 for Arbitrum Sepolia)
+evvmAddress: Your deployed EVVM contract address from the broadcast/DeployTestnet.s.sol/[chainId]/run-latest.json file
+Receive Your ID: The contract will assign you a unique EVVM ID (1000+) automatically
+Registry Contract Location
+🔗 Official Registry EVVM Contract: View on Etherscan
+
+Proxy Address: 0x389dC8fb09211bbDA841D59f4a51160dA2377832
+Implementation: 0xC1ef02492F1A75bCdB20766B558f10D643f9d504
+Network: Ethereum Sepolia Testnet
+Pattern: EIP-1967 Transparent Proxy
+CRITICAL REQUIREMENTS
+MANDATORY FOR ALL DEPLOYMENTS: Regardless of which host blockchain you deployed your EVVM on (Sepolia, Arbitrum Sepolia, or any other testnet), you MUST register on the official Registry EVVM Contract located on Ethereum Sepolia.
+
+ETH Sepolia Required: You need ETH Sepolia tokens to pay for the registration transaction gas fees, even if your EVVM is deployed on a different testnet.
+
+Get ETH Sepolia tokens from these faucets:
+
+Ethereum Global Faucet
+Google Cloud Faucet
+Alchemy Sepolia Faucet
+Chainlink Sepolia Faucet
+Example Registration Call
+```solidity
+// Find EVVM instances by ID
+RegistryEvvm registry = RegistryEvvm(0x389dC8fb09211bbDA841D59f4a51160dA2377832);
+Metadata memory evvmData = registry.getEvvmIdMetadata(1000); // Public EVVM ID
+
+
+Finding Your EVVM Contract Address
+After deployment, find your EVVM contract address in the broadcast files:
+
+# Navigate to your deployment broadcast directory
+cd broadcast/DeployTestnet.s.sol/[CHAIN_ID]/
+
+# Check the run-latest.json file for your EVVM contract address
+cat run-latest.json | grep -A 5 '"contractName": "Evvm"'
+
+
+Look for the contractAddress field in the transaction that deployed the "Evvm" contract.
+
+Prerequisites for Registration
+Before registering, ensure:
+
+✅ ETH Sepolia Tokens: You have ETH Sepolia for gas fees (required even if your EVVM is on different testnet)
+✅ Chain ID Whitelisted: The testnet chain ID where your EVVM is deployed must be whitelisted by the Registry superUser
+✅ Unique Address: Your EVVM address hasn't been registered before on that specific chain
+✅ Valid Deployment: Your EVVM contract is properly deployed and verified on your chosen testnet
+✅ Correct Network: You're connected to Ethereum Sepolia network in your wallet for the registration transaction
+Step-by-Step Registration Process
+Switch to Ethereum Sepolia: Configure your wallet to connect to Ethereum Sepolia network
+Get ETH Sepolia: Obtain testnet ETH from the faucets listed above
+Find Your EVVM Address: Locate your deployed EVVM contract address in the broadcast files
+Call Registry Contract: Execute the registerEvvm() function with your details
+Verify Registration: Confirm your EVVM ID was assigned successfully
+Whitelisted Testnets
+Currently supported testnet chain IDs for EVVM registration:
+
+Ethereum Sepolia: 11155111
+Arbitrum Sepolia: 421614
+Remember: The registration happens on Ethereum Sepolia, but you can register EVVMs deployed on any whitelisted testnet. If your deployment testnet isn't listed, contact the EVVM team to request chain ID whitelisting.
+
+Using Your EVVM ID
+Once registered, your EVVM ID can be used by:
+
+Frontend Applications: To connect to your specific EVVM instance
+Service Integration: For Name Service, Staking, and Treasury operations
+dApp Development: To target your virtual blockchain in smart contracts
+Network Tools: For monitoring, analytics, and developer tools
+Verification
+After registration, verify your EVVM is properly registered:
+
+// Get your EVVM metadata
+Metadata memory metadata = registry.getEvvmIdMetadata(myEvvmId);
+
+// Verify it matches your deployment
+assert(metadata.chainId == YOUR_CHAIN_ID);
+assert(metadata.evvmAddress == YOUR_EVVM_ADDRESS);
+
+
+You can also verify through the Registry's getter functions:
+
+getEvvmIdMetadata(uint256 evvmID): Get registration details for your EVVM ID
+getPublicEvvmIdActive(): See all public EVVM IDs (including yours)
+isAddressRegistered(uint256 chainId, address evvmAddress): Confirm your address is registered
+Reserved IDs
+EVVM IDs 1-999 are reserved for official deployments managed by the superUser. Public registrations receive IDs starting from 1000. Do not attempt to register with reserved IDs.
+
+9. Next Steps
+View deployment artifacts in broadcast/ directory
+Check contract verification on the host blockchain's block explorer (Etherscan/Arbiscan)
+Register your EVVM in the Registry EVVM Contract to get an official ID
+Test your contracts using the provided test suite: make test
+Monitor gas usage and optimize if needed: make seeSizes
+Compile contracts for development: make compile
+Ready to Build Services?
+With your EVVM virtual blockchain deployed, you can now create smart contract services that leverage the EVVM ecosystem:
+
+How to Make a EVVM Service - Complete guide to building smart contracts within your EVVM instance
+Learn about dual signature patterns, fisher incentives, and service integration
+Connect your contracts to existing services like Name Service and Staking
+Implement gasless transactions through the fisher network
+10. Available Commands
+Run make help to see all available commands:
+
+make install          # Install dependencies and compile EVVM contracts
+make compile          # Compile EVVM contracts with IR optimization
+make anvil           # Run Anvil local host blockchain
+make deployLocalTestnet    # Deploy EVVM to local Anvil host blockchain
+make deployTestnet NETWORK=<eth|arb>  # Deploy EVVM to public host blockchains
+make seeSizes        # View EVVM contract sizes
+
+
+11. Explore the EVVM Ecosystem
+Once your EVVM virtual blockchain contracts are deployed and registered on your chosen host blockchain, explore the complete EVVM documentation:
+
+Core System Documentation
+Transaction Processing - Learn how transactions flow through the EVVM ecosystem
+EVVM Core Contract - Understand payment processing and token management
+Staking System - Token staking, rewards, and fisher registration
+Name Service - Username registration and identity resolution
+Advanced Features
+Treasury Operations - Host blockchain to EVVM deposits and withdrawals
+Creating EVVM Services - Build smart contract services within your EVVM instance
+Signature Structures - EIP-191 signature specifications for all services
+Registry System
+Registry EVVM - Central registry for EVVM deployments and ID management
+Public Registration - How to register your EVVM instance
+Registry Governance - Time-delayed governance system
+Payment Functions
+Single Payments - Basic payment operations
+Batch Payments - Multi-payment and dispersal functions
+Withdrawal Functions - Move tokens from EVVM virtual blockchain back to host blockchain
+Key Concepts
+Nonce Types - Synchronous vs asynchronous transaction ordering
+Staking Functions - Complete staking operation guide
+Name Service Functions - Username and metadata management
+Need Help?
+Configuration files - Review input/ directory if you need to modify settings
+Environment setup - Check .env.example for required variables
+Documentation - Explore the comprehensive sections above
+Local testing - Use make anvil and make deployLocalTestnet for local host blockchain development
+Abstract Blockchain Concepts - Start with the Introduction to understand EVVM's revolutionary virtual blockchain architecture
+That's it! You now have a fully deployed and verified EVVM virtual blockchain environment running on your chosen host blockchain, ready for development and testing. Explore the ecosystem documentation to build powerful applications on the world's first abstract blockchain hosted on EVM-compatible networks.
+
+https://www.evvm.info/docs/ProcessOfATransaction
+
+Process of a Transaction in EVVM
+To understand how a transaction works in the EVVM (Ethereum Virtual Virtual Machine) ecosystem, we must first examine its process. EVVM uses an abstract blockchain architecture where transactions are processed through a unique fisher-based validation and execution system.
+
+Transaction Process
+
+The process is divided into three main stages:
+
+Transaction Creation & Signing: The user creates and signs the transaction with EIP-191 standard.
+
+Fisher Capture & Validation: Fishers capture transactions from fishing spots and validate their authenticity.
+
+Execution & Rewards: The transaction is executed in EVVM, and rewards are distributed to fishers and stakers.
+
+Each stage is detailed below.
+
+Transaction Creation & Signing
+In this first stage, the user constructs and signs their transaction using the EIP-191 standard:
+
+1. Transaction Payload Construction
+The user creates the transaction payload, which includes:
+
+Sender Address: The address of the user initiating the transaction.
+Function Parameters: The specific variables and data required by the target EVVM function or service.
+Nonces: Both EVVM nonces (sync/async) and service-specific nonces for replay protection.
+Priority Fees: Optional fees to incentivize fishers for faster processing.
+2. EIP-191 Signature Generation
+The user signs the transaction using the EIP-191 standard, which ensures cryptographic authenticity:
+
+signature = sign(keccak256("\x19Ethereum Signed Message:\n" + len(message) + message))
+
+
+The message typically contains concatenated parameters like function selectors, amounts, addresses, and nonces.
+
+3. Broadcast to Fishing Spot
+Once signed, the user broadcasts the transaction to a fishing spot, which can be:
+
+Public Mempool: Transaction broadcasted to blockchain mempools (e.g., Ethereum mainnet)
+Private APIs: Direct submission to fisher-operated APIs
+Communication Channels: Any medium where fishers monitor for transactions
+Gas Parameters for Mempool Transactions
+When broadcasting to public mempools, use these parameters to ensure the transaction remains unfisherered until captured by fishers:
+
+g
+a
+s
+=
+(
+l
+e
+n
+g
+t
+h
+O
+f
+T
+e
+x
+t
+2
+)
+16
++
+21000
+m
+a
+x
+F
+e
+e
+P
+e
+r
+G
+a
+s
+=
+1
+ 
+g
+w
+e
+i
+m
+a
+x
+P
+r
+i
+o
+r
+i
+t
+y
+F
+e
+e
+P
+e
+r
+G
+a
+s
+=
+0.0000001
+ 
+g
+w
+e
+i
+gas=( 
+2
+lengthOfText
+​
+ )16+21000
+maxFeePerGas=1 gwei
+maxPriorityFeePerGas=0.0000001 gwei
+These low gas parameters prevent immediate execution, allowing fishers to capture and validate the transaction first.
+
+Fisher Capture & Validation
+In this stage, fishers monitor fishing spots and capture user transactions for validation and execution:
+
+1. Transaction Capture
+Fishers actively monitor various fishing spots to capture transactions:
+
+Mempool Monitoring: Scanning blockchain mempools for EVVM transactions
+API Listening: Receiving transactions through private APIs
+Direct Submission: Users can submit transactions directly to specific fishers
+2. Comprehensive Validation
+Before execution, fishers perform thorough validation:
+
+EIP-191 Signature Verification
+Fishers verify each EIP-191 signature to ensure transaction authenticity
+Multiple signatures may be required depending on the function (EVVM + service signatures)
+Invalid signatures result in transaction rejection
+Nonce Verification
+Synchronous Nonces: Must be the next sequential nonce for the user
+Asynchronous Nonces: Must not be previously used (prevents replay attacks)
+Service-specific nonces (e.g., NameService, Staking) are verified separately
+Balance & Authorization Checks
+Sender must have sufficient token balance for the transaction
+Required permissions and access rights are validated
+Service-specific requirements (e.g., staking status, username ownership) are checked
+3. Fisher Requirements
+Fishers can be any address, but stakers receive enhanced rewards
+Some services require fishers to be stakers for execution privileges
+Fishers bear the gas costs of transaction execution on the host blockchain
+Execution & Rewards
+In the final stage, validated transactions are executed in EVVM and rewards are distributed:
+
+1. EVVM Execution
+Once validated, the transaction is executed in the EVVM (Ethereum Virtual Virtual Machine):
+
+Function Calls: The target EVVM function or service function is invoked
+State Updates: Contract states are updated according to the transaction logic
+Token Transfers: Required payments, fees, and transfers are processed
+Event Emissions: Transaction events are logged for tracking and verification
+2. Reward Distribution System
+The EVVM ecosystem incentivizes fishers and stakers through a comprehensive reward system:
+
+Base Rewards for Stakers
+EVVM Contract Rewards: Stakers receive base MATE token rewards for executing EVVM functions
+Service Rewards: Additional rewards from services like NameService, Staking Contract, etc.
+Enhanced Amounts: Stakers often receive multiplied reward amounts compared to non-stakers
+Priority Fee Distribution
+User-Paid Fees: Optional priority fees paid by users go directly to the executing fisher
+Incentive Mechanism: Higher priority fees encourage faster transaction processing
+Flexible Payments: Users can choose to pay priority fees for expedited service
+Service-Specific Rewards
+Different services provide varying reward structures:
+
+NameService: Rewards for registration, renewal, and offer processing
+Staking Contract: Enhanced rewards for staking-related operations
+Treasury Operations: Rewards for deposit and withdrawal processing
+P2P Swap: Fees from peer-to-peer trading operations
+3. Reward Requirements
+Staker Verification: Only verified stakers receive enhanced rewards
+Successful Execution: Rewards are only distributed upon successful transaction completion
+Gas Coverage: Fishers must cover host blockchain gas costs, which are typically offset by rewards
+4. Multi-Service Coordination
+EVVM supports complex transactions involving multiple services:
+
+Cross-Service Operations: Single transactions can interact with multiple EVVM services
+Coordinated Rewards: Reward distribution accounts for all services involved
+Atomic Execution: Either all operations succeed, or the entire transaction reverts
+This reward system creates a sustainable ecosystem where users pay for services, fishers are incentivized to validate and execute transactions, and stakers receive enhanced rewards for their commitment to the network.
+
+
+https://www.evvm.info/docs/category/evvm-core-contract
+
+EVVM Core Contract
+The EVVM Core Contract serves as the central hub for payment processing and token management in the abstract blockchain ecosystem. It implements dual-track payment systems for stakers and non-stakers, manages synchronous and asynchronous transaction nonces, handles cross-chain withdrawals through integrated bridging solutions, and coordinates with all ecosystem services including Name Service, Staking, and Treasury operations. This contract is the foundation that enables EVVM's revolutionary virtual blockchain architecture with fisher-based validation and reward distribution.
+
+📄️ Introduction to the EVVM Core Contract
+The EVVM (Ethereum Virtual Virtual Machine) Core Contract serves as the central payment processing and token management hub for the EVVM ecosystem. This smart contract implements core functionalities including payment systems, staker rewards, cross-chain operations, and administrative tools.
+
+📄️ Nonce Types in EVVM
+The EVVM system implements two distinct nonce mechanisms for payment functions: sync and async. Understanding these nonce types is essential for developers interfacing with the EVVM contract, as they serve different purposes and behave in significantly different ways.
+
+🗃️ Payment Functions
+Learn about EVVM payment functions
+
+📄️ Getter Functions
+This section details all available getter functions in the EVVM contract, providing comprehensive information about the contract's state, configuration, and user data.
+
+📄️ Administrative Functions
+This section covers all administrative functions in the EVVM contract, including system configuration, governance, and access control mechanisms. These functions implement time-delayed governance for critical system changes to ensure security and allow for community review.
+
+📄️ Identity Resolution Functions
+The EVVM contract integrates with the NameService to provide identity-based payment functionality, allowing users to send payments to human-readable usernames instead of complex addresses. This section covers the identity resolution system and NameService integration.
+
+📄️ Economic System Functions
+The EVVM ecosystem implements a sophisticated economic system with deflationary tokenomics, reward distribution, and era-based transitions. This section covers the economic functions that manage token supply, rewards, and the evolution of the system's monetary policy.
+
+📄️ Staking Integration Functions
+The EVVM contract integrates closely with the staking system to manage staker status, privileges, and rewards. This integration enables enhanced functionality for MATE token stakers while maintaining secure access control and reward distribution.
+
+📄️ Proxy Management Functions
+The EVVM contract uses a sophisticated proxy pattern with time-delayed upgrades to ensure security and allow for community review of critical system changes. This section covers all proxy-related functions for implementation management.
+
+📄️ Treasury Functions
+The EVVM contract includes specialized functions that can only be called by the authorized Treasury contract. These functions provide controlled access to user balance management for treasury operations such as deposits, withdrawals, and automated distributions.
+
+
+https://www.evvm.info/docs/EVVM/Introduction
+
+Introduction to the EVVM Core Contract
+The EVVM (Ethereum Virtual Virtual Machine) Core Contract serves as the central payment processing and token management hub for the EVVM ecosystem. This smart contract implements core functionalities including payment systems, staker rewards, cross-chain operations, and administrative tools.
+
+Core Contract Functions
+Payment Processing
+The EVVM Core Contract implements a unified payment system with automatic staker detection:
+
+Unified Payment Function (pay): Single payment function that automatically detects executor staker status
+Automatic Staker Benefits: Staker executors receive priority fees and MATE token rewards automatically
+Nonce Management: Synchronous and asynchronous processing options via priorityFlag parameter
+Batch Operations: Multi-payment processing through payMultiple and dispersePay functions
+Contract Payments: Administrative payment functions (caPay, disperseCaPay)
+Token Management
+Token Abstractions: Internal token representations using EIP-191 signatures
+Balance Management: Principal balances, reward balances, and cross-chain reserves
+Transfer Authorization: Signature-based validation for all token operations
+System Integration
+Name Service: Identity resolution for username-based payments
+Staking Coordination: Principal token staking and reward distribution
+Fisher Bridge: Cross-chain withdrawal and deposit operations
+Administrative Functions
+Governance System: Time-delayed administrative changes
+Security Controls: Multi-layer validation and replay protection
+Proxy Architecture: Upgradeable contract design with implementation changes
+Payment System Architecture
+Unified Payment Processing
+The pay Function
+Automatic Staker Detection: Determines executor staker status during execution without requiring separate functions
+Conditional Rewards: Staker executors automatically receive MATE token rewards and priority fees
+Universal Access: Available to all users - staker benefits are applied automatically based on executor status
+Simplified Integration: Single function handles all payment scenarios, reducing complexity for developers
+Nonce Management System
+Synchronous Processing (priorityFlag = false)
+Automatic nonce increment for ordered transactions
+Guaranteed transaction sequence
+Simplified transaction management
+Asynchronous Processing (priorityFlag = true)
+Custom nonce management for transaction ordering
+Multiple transactions can be prepared simultaneously
+Replay protection prevents duplicate transaction execution
+Advanced Payment Features
+Batch Payment Processing
+Multiple Payments (payMultiple)
+Execute multiple individual payments in one transaction
+Partial success handling with detailed result reporting
+Individual validation for each payment
+Distribution Payments (dispersePay)
+Distribute from one sender to multiple recipients
+All-or-nothing execution for consistency
+Support for both direct addresses and Name Service identities
+Contract-to-Address Payments
+Administrative Payments (caPay)
+Smart contracts can execute payments without token approvals
+Direct integration for contract-based operations
+Automated distributions for system-level operations
+Contract Distribution (disperseCaPay)
+Multi-recipient distributions from contracts
+Designed for protocol-level operations
+Parameter validation for token amounts
+Economic Model and Tokenomics
+Principal Token System
+The principal token drives the contract's economic model:
+
+Era Transitions: Reward halving when supply thresholds are reached
+Base Rewards: Fixed principal token amounts for transaction processing
+Staker Incentives: Additional rewards for principal token holders who stake
+Random Bonuses: Era transition triggers provide lottery-style rewards (1-5083x)
+Fee Structure
+Priority Fees: Optional fees for faster processing
+Staker Distribution: Priority fees distributed to transaction processors
+Cross-Chain Fees: Fees for Fisher Bridge withdrawal and deposit operations
+Dynamic Limits: Withdrawal limits adjustable through governance
+Security Architecture
+Signature Verification
+EIP-191 Standard: All transactions require cryptographic signatures
+Replay Protection: Nonce-based system prevents duplicate transactions
+Parameter Integrity: Signatures cover all critical transaction parameters
+Governance System
+Time-Delayed Changes: 30-day delay for proxy implementation changes, 1-day for administrative updates
+Community Protection: All changes visible before execution
+Emergency Controls: Admin can reject problematic proposals
+Token Architecture
+Token Abstraction System
+EVVM implements internal token abstractions instead of traditional ERC-20 contracts:
+
+Internal Representations: Tokens exist as abstractions within EVVM
+Signature-Based Authorization: All transfers authorized through EIP-191 signatures
+Input Validation: Signatures validated against exact function parameters
+Balance Management
+Principal Balances: Direct token holdings managed by core contract
+Reward Balances: Accumulated principal token rewards from staking and system participation
+Cross-Chain Reserves: Tokens locked for Fisher Bridge operations
+Pending Withdrawals: Balances reserved for cross-chain withdrawal processing
+Integration Capabilities
+Name Service Integration
+Username Payments: Convert usernames to wallet addresses automatically
+Identity Resolution: Support both direct addresses and Name Service identities
+Validation Layer: Verification of identity ownership and validity
+Cross-Chain Bridge Integration
+Withdrawal System: Multi-chain support for token withdrawals
+Security Limits: Configurable withdrawal limits for different tokens
+Operator Incentives: Bridge operators receive fees and rewards
+Execution Methods
+The EVVM supports two execution approaches:
+
+Direct Execution
+User-Initiated: Users interact directly with the EVVM contract
+Immediate Processing: Transactions submitted directly to the blockchain
+Full Control: Complete autonomy over transaction timing and parameters
+Fisher Execution
+Fishing Spot Integration: Users submit transactions through the fishing spot system
+Fisher Processing: Specialized fisher nodes capture and execute transactions
+Optimized Routing: Fishers handle transaction optimization and gas management
+The EVVM Core Contract provides comprehensive payment processing, token management, and administrative functionality as the central infrastructure component of the EVVM ecosystem.
+
+
+https://www.evvm.info/docs/EVVM/NonceTypes
+
+Nonce Types in EVVM
+The EVVM system implements two distinct nonce mechanisms for payment functions: sync and async. Understanding these nonce types is essential for developers interfacing with the EVVM contract, as they serve different purposes and behave in significantly different ways.
+
+Sync Nonce
+Definition and Behavior
+The sync nonce is a consecutive counter that increments sequentially by one each time a payment transaction is executed. This mechanism closely resembles the standard nonce implementation used in Ethereum transactions.
+
+Key Characteristics:
+Sequential Incrementing: Each successful transaction increases the nonce value by exactly one unit.
+Transaction Ordering: Ensures transactions are processed in the order they were issued.
+Replay Protection: Prevents transaction replay attacks by requiring each transaction to have a unique nonce value.
+Predictability: The next valid nonce is always the current nonce value plus one.
+Use Cases:
+Standard payment operations where transaction order matters
+Operations that require deterministic processing sequence
+Situations where transaction dependencies exist
+Services that rely on deterministic payment processing
+Sync Nonce
+
+Async Nonce
+Definition and Behavior
+The async nonce is a non-consecutive number that is user-generated and transaction-specific. Unlike the sync nonce, async nonces do not follow a predetermined sequence and can be any valid number chosen by the user.
+
+Key Characteristics:
+Non-sequential: Numbers don't need to follow any particular order or sequence.
+Uniqueness Per Address: Each async nonce can only be used once per address.
+User-defined: Users can generate their own nonce values, providing flexibility in transaction preparation.
+Parallelism: Multiple transactions can be prepared independently without knowledge of other pending transactions.
+Use Cases:
+Parallel transaction processing
+Delayed execution scenarios
+Batch transaction preparation without dependency on execution order
+Systems where transaction preparation and submission might happen on different timelines
+Async Nonce
+
+https://www.evvm.info/docs/category/payment-functions
+
+Payment Functions
+Learn about EVVM payment functions
+
+📄️ pay Function
+Function Type: external
+
+📄️ payMultiple Function
+Function Type: external
+
+📄️ dispersePay Function
+Function Type: external
+
+📄️ caPay Function
+Function Type: external
+
+📄️ disperseCaPay Function
+Function Type: external
+
+🗃️ Legacy Single Payment Functions
+All Legacy single payment functions in the EVVM contract
+
+
+https://www.evvm.info/docs/EVVM/PaymentFunctions/pay
+
+pay Function
+Function Type: external
+Function Signature: pay(address,address,string,address,uint256,uint256,uint256,bool,address,bytes)
+
+The pay function is the primary payment processor in the EVVM ecosystem, enabling single payments with intelligent staker detection and reward distribution. This function automatically detects whether the executor (msg.sender) is a staker and applies the appropriate logic: stakers receive priority fees and principal token rewards, while non-stakers can still process transactions but without additional benefits.
+
+The function supports both synchronous and asynchronous nonce management through the priorityFlag parameter, making it flexible for various execution patterns and use cases. For details on nonce types, see Nonce Types in EVVM. For signature details, see Payment Signature Structure.
+
+Processes single payments with automatic staker detection and reward distribution. It supports both synchronous and asynchronous nonce management through the priorityFlag parameter, making it flexible for various execution patterns. If the executor (msg.sender) is a staker, they receive priority fees and principal token rewards.
+
+Parameters
+Field	Type	Description
+from	address	The address of the payment sender whose funds are being transferred and whose signature/nonce are validated.
+to_address	address	Direct recipient address. Used when to_identity is empty.
+to_identity	string	Username/identity of the recipient. If provided, the contract resolves it to an address via the NameService.
+token	address	The token contract address for the transfer.
+amount	uint256	The quantity of tokens to transfer from from to the recipient.
+priorityFee	uint256	Additional fee for transaction priority. If the executor is a staker, they receive this fee as a reward.
+nonce	uint256	Transaction nonce value. Usage depends on priorityFlag: if false (sync), this value is ignored and automatic nonce is used.
+priorityFlag	bool	Execution type flag: false = synchronous nonce (sequential), true = asynchronous nonce (custom).
+executor	address	Address authorized to execute this transaction. Use address(0) to allow any address to execute.
+signature	bytes	Cryptographic signature (EIP-191) from the from address authorizing this payment.
+note
+The nonce parameter usage depends on priorityFlag: when false (synchronous), the nonce is automatically managed and the provided value is ignored; when true (asynchronous), the provided nonce value is used for custom ordering.
+
+Execution Methods
+The function can be executed in multiple ways:
+
+Fisher Execution
+A user signs the payment details and sends the request (parameters + signature) to a fishing spot.
+A fisher (preferably a staker for rewards) captures the transaction and validates the request.
+The fisher submits the transaction to the function for processing and receives rewards if they are a staker.
+Direct Execution
+The user or any authorized service directly calls the pay function.
+If an executor address is specified, only that address can submit the transaction.
+If executor is set to address(0), anyone can execute the transaction with a valid signature.
+tip
+When using a service as the executor, we recommend specifying the service's address in the executor parameter for additional security.
+
+Workflow
+Signature Verification: Validates the signature against the from address and other parameters using verifyMessageSignedForPay. For synchronous payments (priorityFlag = false), uses nextSyncUsedNonce[from] as the nonce; for asynchronous payments (priorityFlag = true), uses the provided nonce parameter. Reverts with InvalidSignature on failure.
+Executor Validation: If executor is not address(0), checks that msg.sender matches the executor address. Reverts with SenderIsNotTheExecutor if they don't match.
+Asynchronous Nonce Verification: For asynchronous payments only (priorityFlag = true), checks if the provided nonce has already been used for the from address by consulting the asyncUsedNonce mapping. Reverts with InvalidAsyncNonce if the nonce has already been used.
+Resolve Recipient Address: Determines the final recipient address:
+If to_identity is provided (not empty), resolves the identity to an owner address using verifyStrictAndGetOwnerOfIdentity from the NameService contract.
+If to_identity is empty, uses the provided to_address.
+Balance Update: Executes the payment transfer using the _updateBalance function, sending amount of token from the from address to the resolved recipient address. Reverts with UpdateBalanceFailed on transfer failure.
+Staker Benefits Distribution: If the executor (msg.sender) is a registered staker:
+Priority Fee Transfer: If priorityFee > 0, transfers the priorityFee amount of token from the from address to the msg.sender (executor) as a staker reward.
+Principal Token Reward: Grants 1x reward amount in principal tokens to the msg.sender (executor) using the _giveReward function.
+Nonce Management: Updates nonce tracking based on execution type:
+Asynchronous (priorityFlag = true): Marks the specific nonce as used (true) for the from address in the asyncUsedNonce mapping.
+Synchronous (priorityFlag = false): Increments the synchronous nonce counter for the from address to prevent replay attacks.
+info
+For more information about the signature structure, refer to the Payment Signature Structure section.
+
+https://www.evvm.info/docs/EVVM/PaymentFunctions/payMultiple
+
+
+
+
+payMultiple Function
+Function Type: external
+Function Signature: payMultiple((address,address,string,address,uint256,uint256,uint256,bool,address,bytes)[]) Returns: (uint256 successfulTransactions, uint256 failedTransactions, bool[] memory results)
+
+Processes multiple payments in a single transaction batch with individual success/failure tracking. Each payment instruction can originate from different senders and supports both staker and non-staker payment types, with comprehensive transaction statistics and detailed results for each operation.
+
+Parameters
+Parameter	Type	Description
+payData	PayData[]	An array of structs, each defining a single payment operation
+Return Values
+Return Value	Type	Description
+successfulTransactions	uint256	Number of payments that completed successfully
+failedTransactions	uint256	Number of payments that failed
+results	bool[]	Boolean array indicating success/failure for each payment
+PayData Struct
+Defines the complete set of parameters for a single, independent payment within the batch.
+
+struct PayData {
+    address from;
+    address to_address;
+    string to_identity;
+    address token;
+    uint256 amount;
+    uint256 priorityFee;
+    uint256 nonce;
+    bool priorityFlag;
+    address executor;
+    bytes signature;
+}
+
+Field	Type	Description
+from	address	The address of the payment sender whose funds are being transferred and whose signature/nonce are validated.
+to_address	address	Direct recipient address. Used when to_identity is empty.
+to_identity	string	Username/identity of the recipient. If provided, the contract resolves it to an address via the NameService.
+token	address	The token address for the transfer.
+amount	uint256	The quantity of tokens to transfer from from to the recipient.
+priorityFee	uint256	Fee amount distributed to stakers as reward (only paid if executor is a staker).
+nonce	uint256	Nonce value for transaction ordering and replay protection (interpretation depends on priorityFlag).
+priorityFlag	bool	Determines nonce type: true for asynchronous (custom nonce), false for synchronous (sequential nonce).
+executor	address	Address authorized to execute this transaction. Use address(0) to allow any address to execute.
+signature	bytes	Cryptographic signature (EIP-191) from the from address authorizing this payment.
+info
+If you want to know more about the signature structure, refer to the Payment Signature Structure section.
+
+Execution Methods
+This function can be executed by any address, with different behavior depending on whether the executor is a staker:
+
+Fisher Execution
+A fisher collects multiple authorized PayData structures (with valid signatures) from various users through fishing spots.
+The fisher aggregates these into the payData array and submits the transaction.
+If the fisher is a staker, they receive priority fees and principal token rewards.
+Direct Execution
+A user or service constructs the payData array with one or multiple payment requests.
+They directly call payMultiple with appropriate authorization.
+Staker executors receive priority fees and principal token rewards based on successful transactions.
+tip
+When using a service as the executor, we recommend specifying the service's address in the executor parameter for additional security.
+
+Workflow
+The function processes each payment in the payData array independently, allowing partial success:
+
+Initialize Results Array: Creates a boolean array to track individual payment results.
+
+For each payment in the array:
+
+a. Signature Verification: Validates the signature against all payment parameters using verifyMessageSignedForPay. Uses the appropriate nonce based on priorityFlag. Reverts with InvalidSignature if validation fails.
+
+b. Executor Validation: If executor is not address(0), checks that msg.sender matches the executor address. If they don't match, marks the payment as failed and continues to the next payment.
+
+c. Nonce Management: Handles nonce verification and updates based on priorityFlag:
+
+Async (priorityFlag = true): Checks if the custom nonce hasn't been used, then marks it as used. If already used, marks payment as failed.
+Sync (priorityFlag = false): Verifies the nonce matches the expected sequential nonce, then increments it. If mismatch, marks payment as failed.
+d. Recipient Resolution: Determines the final recipient address:
+
+If to_identity is provided, resolves it using verifyStrictAndGetOwnerOfIdentity from the NameService.
+If to_identity is empty, uses to_address.
+e. Balance Verification: Checks if the sender has sufficient balance for both amount and priorityFee. If insufficient, marks payment as failed.
+
+f. Payment Execution: Executes the main transfer using _updateBalance. If the transfer fails, marks payment as failed.
+
+g. Priority Fee Distribution: If the payment succeeded and priorityFee > 0 and the executor is a staker (isAddressStaker(msg.sender)), transfers the priority fee to the executor. If this fails, marks payment as failed.
+
+h. Result Tracking: Updates counters and result array based on payment success/failure.
+
+Staker Rewards: After processing all payments, if the executor is a staker, grants principal token rewards equal to the number of successful transactions using _giveMateReward.
+
+Return Values: Returns the count of successful transactions, failed transactions, and the detailed results array.
+
+note
+Each payment is processed independently - failure of one payment doesn't affect others in the batch.
+
+payMultiple Happy Path payMultiple Failed Path
+
+
+https://www.evvm.info/docs/EVVM/PaymentFunctions/caPay
+
+caPay Function
+Function Type: external
+Function Signature: caPay(address,address,uint256)
+Function Selector: 0xc898a6e9
+
+Contract-to-address payment function designed for authorized smart contracts to distribute tokens without signature verification. This function allows registered smart contracts to efficiently transfer tokens using direct balance manipulation, primarily for automated distributions and system payouts.
+
+Key Features
+Contract-Only Execution: Only smart contracts (non-EOA addresses) can call this function, verified via bytecode presence
+No Signature Required: Bypasses signature verification as authorization is implicit through contract execution
+No Nonce Management: Does not use EVVM nonce systems since contracts rely on blockchain transaction nonces
+Automated Distributions: Designed for staking rewards, NameService fees, and other automated system payouts
+Staker Rewards: Contracts that are registered stakers receive principal token rewards for successful transfers
+Parameters
+Field	Type	Description
+to	address	The recipient's address for the token transfer.
+token	address	The token address to transfer.
+amount	uint256	The quantity of tokens to transfer from the calling contract.
+Workflow
+Contract Verification: Validates that the caller (msg.sender) is a smart contract by checking its bytecode size using extcodesize. Reverts with NotAnCA if the caller is an Externally Owned Account (EOA).
+
+Balance Update: Executes the token transfer using the _updateBalance function:
+
+Verifies the calling contract has sufficient token balance
+Debits the amount from the calling contract's balance
+Credits the amount to the recipient's balance
+Reverts with UpdateBalanceFailed if the transfer fails
+Staker Reward: If the calling contract is a registered staker (isAddressStaker(msg.sender)), grants 1 principal token reward using _giveMateReward.
+
+caPay
+
+https://www.evvm.info/docs/EVVM/PaymentFunctions/disperseCaPay
+
+disperseCaPay Function
+Function Type: external
+Function Signature: disperseCaPay((uint256,address)[],address,uint256) Function Selector: 0xa7a096f6
+
+Contract-to-multiple-addresses payment distribution function that allows authorized smart contracts to distribute tokens to multiple recipients efficiently in a single transaction. This function is optimized for contract-based automated distributions with minimal overhead.
+
+Key Features
+Contract-Only Execution: Only smart contracts can call this function, verified via bytecode presence
+Direct Address Distribution: Optimized for direct address transfers without identity resolution
+Batch Efficiency: Single transaction distributes to multiple recipients with amount validation
+No Authorization Overhead: No signature verification or nonce management required
+Staker Rewards: Contracts that are registered stakers receive principal token rewards
+Parameters
+Parameter	Type	Description
+toData	DisperseCaPayMetadata[]	An array detailing each recipient's address and the amount they should receive. See struct below.
+token	address	The token address to distribute.
+amount	uint256	The total amount of tokens to distribute across all recipients. Must equal the sum of individual amounts in toData.
+DisperseCaPayMetadata Struct
+Defines the payment details for a single recipient within the toData array.
+
+struct DisperseCaPayMetadata {
+   uint256 amount;
+   address toAddress;
+}
+
+Field	Type	Description
+amount	uint256	The amount of tokens to send to this recipient.
+toAddress	address	The recipient's direct wallet address.
+Workflow
+Contract Verification: Validates that the caller (msg.sender) is a smart contract by checking its bytecode size using extcodesize. Reverts with NotAnCA if the caller is an Externally Owned Account (EOA).
+
+Balance Verification: Checks that the calling contract has sufficient token balance to cover the total distribution amount. Reverts with InsufficientBalance if insufficient.
+
+Balance Deduction: Subtracts the total amount from the calling contract's token balance upfront.
+
+Distribution Loop: Iterates through each recipient in the toData array:
+
+Amount Tracking: Maintains a running total (accumulatedAmount) of distributed amounts
+Overflow Check: Validates that accumulated amount doesn't exceed the total amount during iteration
+Token Distribution: Adds the specified amount directly to each recipient's balance
+Final Amount Validation: Verifies that the total distributed amount exactly matches the specified amount parameter. Reverts with InvalidAmount if there's a mismatch.
+
+Staker Reward: If the calling contract is a registered staker (isAddressStaker(msg.sender)), grants 1 principal token reward using _giveMateReward.
+
+disperseCaPay
+
+https://www.evvm.info/docs/category/legacy-single-payment-functions
+
+Legacy Single Payment Functions
+All Legacy single payment functions in the EVVM contract
+
+📄️ Introduction
+Important Notice About Implementation Location
+
+📄️ payNoStaker Functions
+The payNoStaker functions enable single payments where the transaction executor (msg.sender) is not required to hold staking tokens. This provides a more accessible execution model compared to staking-required payment functions.
+
+📄️ payStaker Functions
+The payStaker functions process single payments where the transaction executor (msg.sender) must be a token staker. These functions provide enhanced benefits including priority fee rewards and principal token rewards for stakers who process transactions.
+
+
+https://www.evvm.info/docs/EVVM/PaymentFunctions/SinglePaymentFunctions/Introduction
+
+Introduction
+Important Notice About Implementation Location
+The single payment functions documented in this section are currently implemented in src/contracts/evvm/EvvmLegacy.sol instead of the main Evvm.sol contract.
+
+Legacy Implementation
+This contract includes multiple pay functions, which, although gas efficient, can be complex in code. If you prefer your EVVM to have multiple pay functions, please change the name of the document from EvvmLegacy.sol to Evvm.sol and verify that the services have something similar to this instead of pay.
+
+Background
+The EVVM ecosystem provides two approaches for implementing payment functionality:
+
+Simplified Approach (Current Default): Uses a single, unified pay function that handles all payment scenarios through internal logic branching.
+
+Legacy Approach (Multiple Functions): Uses separate, specialized functions for different payment types (payNoStaker_sync, payNoStaker_async, payStaker_sync, payStaker_async).
+
+When to Use Legacy Functions
+Consider using the legacy implementation if:
+
+Gas Optimization is Critical: The specialized functions can be more gas-efficient for specific use cases since they avoid conditional logic.
+Clear Function Separation: Your application benefits from having distinct function signatures for different payment types.
+Integration Requirements: Your existing services are designed to work with multiple specific payment functions.
+Migration Process
+To use these legacy functions in your EVVM deployment:
+
+Rename the File: Change EvvmLegacy.sol to Evvm.sol in your contract structure.
+Update Service Integration: Ensure your services are configured to use the specific function names instead of the generic pay function.
+Test Thoroughly: Verify that all payment scenarios work correctly with the specialized functions.
+Update Documentation: Make sure your service documentation reflects the use of multiple payment functions.
+Function Overview
+The legacy implementation provides four main payment functions:
+
+payNoStaker_sync: Synchronous payments for non-stakers
+payNoStaker_async: Asynchronous payments for non-stakers
+payStaker_sync: Synchronous payments for stakers with rewards
+payStaker_async: Asynchronous payments for stakers with rewards
+Each function is optimized for its specific use case, providing potentially better gas efficiency at the cost of increased code complexity.
+
+The following documentation covers each of these specialized payment functions in detail.
+
+
+https://www.evvm.info/docs/EVVM/PaymentFunctions/SinglePaymentFunctions/payNoStaker
+
+
+
+payNoStaker Functions
+The payNoStaker functions enable single payments where the transaction executor (msg.sender) is not required to hold staking tokens. This provides a more accessible execution model compared to staking-required payment functions.
+
+A key characteristic of these functions is that the priorityFee parameter is not utilized in non-staker payments, simplifying the transaction structure for users who don't participate in the staking mechanism.
+
+These functions are available in two variants: synchronous (_sync) for sequential transaction ordering and asynchronous (_async) for flexible transaction ordering. For details on nonce types, see Nonce Types in EVVM. For signature details, see Payment Signature Structure.
+
+payNoStaker_sync
+Function Type: external
+Function Signature: payNoStaker_sync(address,address,string,address,uint256,uint256,address,bytes)
+Function Selector: 0x4faa1fa2
+
+Executes a single, synchronous payment without requiring the executor (msg.sender) to hold staking tokens. It uses an implicitly managed synchronous nonce. The executor does not receive the priorityFee or rewards.
+
+Parameters
+Field	Type	Description
+from	address	The address of the payment sender whose funds are being transferred and whose signature/nonce are validated.
+to_address	address	Direct recipient address. Used when to_identity is empty.
+to_identity	string	Username/identity of the recipient. If provided, the contract resolves it to an address via the NameService.
+token	address	The token address for the transfer.
+amount	uint256	The quantity of tokens to transfer from from to the recipient.
+priorityFee	uint256	Additional fee for transaction priority (not used in non-staker payments).
+executor	address	Address authorized to execute this transaction. Use address(0) to allow any address to execute (sender-only restriction removed).
+signature	bytes	Cryptographic signature (EIP-191) from the from address authorizing this payment.
+note
+There is no explicit nonce parameter; the synchronous nonce is automatically managed and validated as part of the signature verification process.
+
+Execution Methods
+The function can be executed in two ways:
+
+Fisher Execution
+A user signs the payment details and sends the request (parameters + signature) to a fishing spot.
+The fisher (who must hold staking) captures the transaction and validates the request.
+The fisher submits the transaction to the function for processing.
+Direct Execution
+The user or any authorized service directly calls the payNoStaker_sync function.
+If an executor address is specified, only that address can submit the transaction.
+If executor is set to address(0), anyone can execute the transaction with a valid signature.
+tip
+When using a service as the executor, we recommend specifying the service's address in the executor parameter for additional security.
+
+Workflow
+Signature Verification: Validates the signature against the from address and other parameters using verifyMessageSignedForPay. This includes checking that the synchronous nonce matches the expected next nonce for the from address. Reverts with InvalidSignature on failure.
+Executor Validation: If executor is not address(0), checks that msg.sender matches the executor address. Reverts with SenderIsNotTheExecutor if they don't match.
+Resolve Recipient Address: Determines the final recipient address:
+If to_identity is provided (not empty), resolves the identity to an owner address using verifyStrictAndGetOwnerOfIdentity from the NameService contract.
+If to_identity is empty, uses the provided to_address.
+Balance Update: Executes the payment transfer using the _updateBalance function, sending amount of token from the from address to the resolved recipient address. Reverts with UpdateBalanceFailed on transfer failure.
+Nonce Increment: Increments the synchronous nonce counter for the from address to prevent replay attacks.
+info
+For more information about the signature structure, refer to the Payment Signature Structure section.
+
+payNoStaker_sync generic transaction flow
+
+payNoStaker_async
+Function Type: external
+Function Signature: payNoStaker_async(address,address,string,address,uint256,uint256,uint256,address,bytes)
+Function Selector: 0xf4e1895b
+
+Executes a single, asynchronous payment without requiring the executor (msg.sender) to hold staking tokens. Asynchronous execution uses an explicit nonce parameter, allowing for out-of-order processing relative to other async transactions from the same sender. The executor does not receive the priorityFee or rewards.
+
+Parameters
+Field	Type	Description
+from	address	The address of the payment sender whose funds are being transferred and whose signature/nonce are validated.
+to_address	address	Direct recipient address. Used when to_identity is empty.
+to_identity	string	Username/identity of the recipient. If provided, the contract resolves it to an address via the NameService.
+token	address	The token address for the transfer.
+amount	uint256	The quantity of tokens to transfer from from to the recipient.
+priorityFee	uint256	Additional fee for transaction priority (not used in non-staker payments).
+nonce	uint256	Custom nonce value for transaction ordering and replay protection.
+executor	address	Address authorized to execute this transaction. Use address(0) to allow any address to execute (sender-only restriction removed).
+signature	bytes	Cryptographic signature (EIP-191) from the from address authorizing this payment.
+Execution Methods
+This function can be executed by any address since it doesn't require the executor to hold staking tokens:
+
+Direct Execution
+The user or any authorized service directly calls the payNoStaker_async function.
+If an executor address is specified, only that address can submit the transaction.
+If executor is set to address(0), anyone can execute the transaction with a valid signature.
+tip
+When using a service as the executor, we recommend specifying the service's address in the executor parameter for additional security.
+
+Workflow
+Signature Verification: Validates the signature against the from address and other parameters using verifyMessageSignedForPay. Reverts with InvalidSignature on failure.
+Executor Validation: If executor is not address(0), checks that msg.sender matches the executor address. Reverts with SenderIsNotTheExecutor if they don't match.
+Async Nonce Verification: Checks if the provided nonce has already been used for the from address by consulting the asyncUsedNonce mapping. Reverts with InvalidAsyncNonce if the nonce has already been used.
+Resolve Recipient Address: Determines the final recipient address:
+If to_identity is provided (not empty), resolves the identity to an owner address using verifyStrictAndGetOwnerOfIdentity from the NameService contract.
+If to_identity is empty, uses the provided to_address.
+Balance Update: Executes the payment transfer using the _updateBalance function, sending amount of token from the from address to the resolved recipient address. Reverts with UpdateBalanceFailed on transfer failure.
+Nonce Marking: Marks the specific asynchronous nonce as used (true) for the from address in the asyncUsedNonce mapping to prevent replay attacks.
+info
+If you want to know more about the signature structure, refer to the Payment Signature Structure section.
+
+payNoStaker_async generic transaction flow
+
+
+https://www.evvm.info/docs/EVVM/PaymentFunctions/SinglePaymentFunctions/payStaker
+
+payStaker Functions
+The payStaker functions process single payments where the transaction executor (msg.sender) must be a token staker. These functions provide enhanced benefits including priority fee rewards and principal token rewards for stakers who process transactions.
+
+Staker benefits include receiving priority fees as rewards for transaction processing and earning principal token rewards upon successful execution. These functions support both direct addresses and identity-based payments through the NameService.
+
+For detailed information on nonce types, please refer to the Nonce Types in EVVM section. The signature structure for these payments is detailed in the Payment Signature Structure section.
+
+payStaker_sync
+Function Type: external
+Function Signature: payStaker_sync(address,address,string,address,uint256,uint256,address,bytes)
+Function Selector: 0x4faa1fa2
+
+Processes synchronous payments for principal token stakers with enhanced benefits and rewards. This function provides staker benefits including priority fee rewards and principal token rewards, while using automatic nonce increment for sequential transaction ordering.
+
+Parameters
+Field	Type	Description
+from	address	The address of the payment sender whose funds are being transferred and whose signature/nonce are validated.
+to_address	address	Direct recipient address. Used when to_identity is empty.
+to_identity	string	Username/identity of the recipient. If provided, the contract resolves it to an address via the NameService.
+token	address	The token address for the transfer.
+amount	uint256	The quantity of tokens to transfer from from to the recipient.
+priorityFee	uint256	Fee amount distributed to stakers as reward for processing the transaction.
+executor	address	Address authorized to execute this transaction (must be a staker). Use address(0) to allow any staker to execute.
+signature	bytes	Cryptographic signature (EIP-191) from the from address authorizing this payment.
+note
+There is no explicit nonce parameter; the synchronous nonce is automatically managed and validated as part of the signature verification process.
+
+Execution Methods
+This function can only be executed by principal token stakers:
+
+Fisher Execution
+A user signs the payment details and sends the request (parameters + signature) to a fishing spot.
+The fisher (who must be a registered staker) captures the transaction and validates the request.
+The fisher submits the transaction to the function for processing and receives rewards.
+Direct Execution
+When the executor is a staker user or service:
+
+The staker user/service directly calls the payStaker_sync function.
+The executor receives priority fee rewards and principal token rewards for processing.
+tip
+When using a service as the executor, we recommend specifying the service's address in the executor parameter for additional security.
+
+Workflow
+Signature Verification: Validates the signature against the from address and other parameters using verifyMessageSignedForPay. This includes checking that the synchronous nonce matches the expected next nonce for the from address. Reverts with InvalidSignature on failure.
+Executor Validation: If executor is not address(0), checks that msg.sender matches the executor address. Reverts with SenderIsNotTheExecutor if they don't match.
+Staker Verification: Verifies that the msg.sender (executor) is a registered staker using the isAddressStaker function. Reverts with NotAnStaker if msg.sender is not a staker.
+Resolve Recipient Address: Determines the final recipient address:
+If to_identity is provided (not empty), resolves the identity to an owner address using verifyStrictAndGetOwnerOfIdentity from the NameService contract.
+If to_identity is empty, uses the provided to_address.
+Balance Update: Executes the main payment transfer using the _updateBalance function, sending amount of token from the from address to the resolved recipient address. Reverts with UpdateBalanceFailed on transfer failure.
+Priority Fee Distribution: If priorityFee > 0, transfers the priorityFee amount of token from the from address to the msg.sender (executor) as a staker reward. Reverts with UpdateBalanceFailed on transfer failure.
+Principal Token Reward: Grants 1 principal token reward to the msg.sender (executor) using the _giveMateReward function.
+Nonce Increment: Increments the synchronous nonce counter for the from address to prevent replay attacks.
+info
+For more information about the signature structure, refer to the Payment Signature Structure section.
+
+payStaker_sync generic transaction flow
+
+payStaker_async
+Function Type: external
+Function Signature: payStaker_async(address,address,string,address,uint256,uint256,uint256,address,bytes)
+Function Selector: 0xf4e1895b
+
+Processes asynchronous payments for principal token stakers with enhanced benefits and custom nonce management. This function provides staker benefits including priority fee rewards and principal token rewards, while using custom nonces for flexible transaction ordering and replay protection.
+
+Parameters
+Field	Type	Description
+from	address	The address of the payment sender whose funds are being transferred and whose signature/nonce are validated.
+to_address	address	Direct recipient address. Used when to_identity is empty.
+to_identity	string	Username/identity of the recipient. If provided, the contract resolves it to an address via the NameService.
+token	address	The token contract address for the transfer.
+amount	uint256	The quantity of tokens to transfer from from to the recipient.
+priorityFee	uint256	Fee amount distributed to stakers as reward for processing the transaction.
+nonce	uint256	Custom nonce value for transaction ordering and replay protection.
+executor	address	Address authorized to execute this transaction (must be a staker). Use address(0) to allow any staker to execute.
+signature	bytes	Cryptographic signature (EIP-191) from the from address authorizing this payment.
+Execution Methods
+This function can only be executed by principal token stakers:
+
+Fisher Execution
+A user signs the payment details and sends the request (parameters + signature) to a fishing spot.
+The fisher (who must be a registered staker) captures the transaction and validates the request.
+The fisher submits the transaction to the function for processing and receives rewards.
+Direct Execution
+When the executor is a staker user or service:
+
+The staker user/service directly calls the payStaker_async function.
+The executor receives priority fee rewards and principal token rewards for processing.
+tip
+When using a service as the executor, we recommend specifying the service's address in the executor parameter for additional security.
+
+Workflow
+Signature Verification: Validates the signature against the from address and other parameters using verifyMessageSignedForPay. Reverts with InvalidSignature on failure.
+Executor Validation: If executor is not address(0), checks that msg.sender matches the executor address. Reverts with SenderIsNotTheExecutor if they don't match.
+Staker Verification: Verifies that the msg.sender (executor) is a registered staker using the isAddressStaker function. Reverts with NotAnStaker if msg.sender is not a staker.
+Async Nonce Verification: Checks if the provided nonce has already been used for the from address by consulting the asyncUsedNonce mapping. Reverts with InvalidAsyncNonce if the nonce has already been used.
+Resolve Recipient Address: Determines the final recipient address:
+If to_identity is provided (not empty), resolves the identity to an owner address using verifyStrictAndGetOwnerOfIdentity from the NameService contract.
+If to_identity is empty, uses the provided to_address.
+Balance Update: Executes the main payment transfer using the _updateBalance function, sending amount of token from the from address to the resolved recipient address. Reverts with UpdateBalanceFailed on transfer failure.
+Priority Fee Distribution: If priorityFee > 0, transfers the priorityFee amount of token from the from address to the msg.sender (executor) as a staker reward. Reverts with UpdateBalanceFailed on transfer failure.
+Principal token Reward: Grants 1 principal token reward to the msg.sender (executor) using the _giveMateReward function. Reverts with UpdateBalanceFailed on failure.
+Nonce Marking: Marks the specific asynchronous nonce as used (true) for the from address in the asyncUsedNonce mapping to prevent replay attacks.
+info
+For more information about the signature structure, refer to the Payment Signature Structure section.
+
+payStaker_async generic transaction flow
+
+
+
+https://www.evvm.info/docs/EVVM/Getters
+
+Getter Functions
+This section details all available getter functions in the EVVM contract, providing comprehensive information about the contract's state, configuration, and user data.
+
+System Configuration Functions
+getEvvmMetadata
+Function Type: view
+Function Signature: getEvvmMetadata()
+
+Returns the complete EVVM metadata configuration containing system-wide parameters and economic settings.
+
+Return Value
+Returns an EvvmMetadata struct containing:
+
+Field	Type	Description
+principalTokenAddress	address	Address of the principal token (MATE token)
+reward	uint256	Current reward amount per transaction
+totalSupply	uint256	Total supply tracking for era transitions
+eraTokens	uint256	Era tokens threshold for reward transitions
+getNameServiceAddress
+Function Type: view
+Function Signature: getNameServiceAddress()
+
+Gets the current NameService contract address used for identity resolution in payments.
+
+Return Value
+Type	Description
+address	Address of the integrated NameService contract
+getStakingContractAddress
+Function Type: view
+Function Signature: getStakingContractAddress()
+
+Gets the authorized staking contract address that can modify staker status and receive rewards.
+
+Return Value
+Type	Description
+address	Address of the integrated staking contract
+Nonce Management Functions
+getNextCurrentSyncNonce
+Function Type: view
+Function Signature: getNextCurrentSyncNonce(address)
+
+Returns the expected nonce for the next synchronous payment transaction for a specific user.
+
+Input Parameters
+Parameter	Type	Description
+user	address	Address to check sync nonce for
+Return Value
+Type	Description
+uint256	Next synchronous nonce value
+getIfUsedAsyncNonce
+Function Type: view
+Function Signature: getIfUsedAsyncNonce(address,uint256)
+
+Checks if a specific asynchronous nonce has been used by a user to prevent replay attacks.
+
+Input Parameters
+Parameter	Type	Description
+user	address	Address to check nonce usage for
+nonce	uint256	Specific nonce value to verify
+Return Value
+Type	Description
+bool	True if the nonce has been used, false if available
+getNextFisherDepositNonce
+Function Type: view
+Function Signature: getNextFisherDepositNonce(address)
+
+Returns the expected nonce for the next Fisher Bridge cross-chain deposit.
+
+Input Parameters
+Parameter	Type	Description
+user	address	Address to check deposit nonce for
+Return Value
+Type	Description
+uint256	Next Fisher Bridge deposit nonce
+Balance and Staking Functions
+getBalance
+Function Type: view
+Function Signature: getBalance(address,address)
+
+Gets the balance of a specific token for a user stored in the EVVM system.
+
+Input Parameters
+Parameter	Type	Description
+user	address	Address to check balance for
+token	address	Token contract address to check
+Return Value
+Type	Description
+uint	Current token balance for the user
+isAddressStaker
+Function Type: view
+Function Signature: isAddressStaker(address)
+
+Checks if an address is registered as a staker with transaction processing privileges and reward eligibility.
+
+Input Parameters
+Parameter	Type	Description
+user	address	Address to check staker status for
+Return Value
+Type	Description
+bool	True if the address is a registered staker
+Economic System Functions
+getEraPrincipalToken
+Function Type: view
+Function Signature: getEraPrincipalToken()
+
+Gets the current era token threshold that triggers the next reward halving in the deflationary tokenomics system.
+
+Return Value
+Type	Description
+uint256	Current era tokens threshold
+getRewardAmount
+Function Type: view
+Function Signature: getRewardAmount()
+
+Gets the current MATE token reward amount distributed to stakers for transaction processing.
+
+Return Value
+Type	Description
+uint256	Current reward amount in MATE tokens
+getPrincipalTokenTotalSupply
+Function Type: view
+Function Signature: getPrincipalTokenTotalSupply()
+
+Gets the total supply of the principal token (MATE) used for era transition calculations.
+
+Return Value
+Type	Description
+uint256	Total supply of MATE tokens
+Token Management Functions
+getWhitelistTokenToBeAdded
+Function Type: view
+Function Signature: getWhitelistTokenToBeAdded()
+
+Gets the address of the token that is pending whitelist approval after the time delay.
+
+Return Value
+Type	Description
+address	Address of the token prepared for whitelisting (zero if none)
+getWhitelistTokenToBeAddedDateToSet
+Function Type: view
+Function Signature: getWhitelistTokenToBeAddedDateToSet()
+
+Gets the acceptance deadline for pending token whitelist proposals.
+
+Return Value
+Type	Description
+uint256	Timestamp when pending token can be whitelisted (0 if no pending proposal)
+Proxy and Governance Functions
+getCurrentImplementation
+Function Type: view
+Function Signature: getCurrentImplementation()
+
+Gets the current active implementation contract address used by the proxy for delegatecalls.
+
+Return Value
+Type	Description
+address	Address of the current implementation contract
+getProposalImplementation
+Function Type: view
+Function Signature: getProposalImplementation()
+
+Gets the proposed implementation contract address pending approval for proxy upgrade.
+
+Return Value
+Type	Description
+address	Address of the proposed implementation contract (zero if none)
+getTimeToAcceptImplementation
+Function Type: view
+Function Signature: getTimeToAcceptImplementation()
+
+Gets the acceptance deadline for the pending implementation upgrade.
+
+Return Value
+Type	Description
+uint256	Timestamp when implementation upgrade can be executed (0 if no pending proposal)
+Administrative Functions
+getCurrentAdmin
+Function Type: view
+Function Signature: getCurrentAdmin()
+
+Gets the current admin address with administrative privileges over the contract.
+
+Return Value
+Type	Description
+address	Address of the current admin
+getProposalAdmin
+Function Type: view
+Function Signature: getProposalAdmin()
+
+Gets the proposed admin address pending approval for admin privileges.
+
+Return Value
+Type	Description
+address	Address of the proposed admin (zero if no pending proposal)
+getTimeToAcceptAdmin
+Function Type: view
+Function Signature: getTimeToAcceptAdmin()
+
+Gets the acceptance deadline for the pending admin change.
+
+Return Value
+Type	Description
+uint256	Timestamp when admin change can be executed (0 if no pending proposal)
+Usage Examples
+Checking User Balance
+// Check MATE token balance for a user
+uint256 mateBalance = evvm.getBalance(userAddress, mateTokenAddress);
+
+// Check if user is a staker
+bool isStaker = evvm.isAddressStaker(userAddress);
+
+Nonce Management
+// Get next sync nonce for a user
+uint256 nextNonce = evvm.getNextCurrentSyncNonce(userAddress);
+
+// Check if async nonce is used
+bool nonceUsed = evvm.getIfUsedAsyncNonce(userAddress, customNonce);
+
+Token Management Verification
+// Check if token is pending whitelist
+address pendingToken = evvm.getWhitelistTokenToBeAdded();
+
+// Get deadline for whitelist proposal
+uint256 deadline = evvm.getWhitelistTokenToBeAddedDateToSet();
+
+
+https://www.evvm.info/docs/EVVM/AdminFunctions
+
+
+Administrative Functions
+This section covers all administrative functions in the EVVM contract, including system configuration, governance, and access control mechanisms. These functions implement time-delayed governance for critical system changes to ensure security and allow for community review.
+
+Proxy Management Functions
+The proxy management functions have been moved to their own dedicated section. See Proxy Management Functions for complete documentation on implementation upgrades and proxy operations.
+
+Initial Setup Functions
+_setupNameServiceAndTreasuryAddress
+Function Type: external
+Function Signature: _setupNameServiceAndTreasuryAddress(address,address)
+
+One-time setup function to configure the NameService and Treasury contract addresses. This function can only be called once due to a breaker flag mechanism for security.
+
+Input Parameters
+Parameter	Type	Description
+_nameServiceAddress	address	Address of the deployed NameService contract
+_treasuryAddress	address	Address of the deployed Treasury contract
+Setup Process
+Breaker Validation: Ensures the function can only be called once
+NameService Configuration: Sets the NameService contract address for identity resolution
+Initial Balance: Provides 10,000 MATE tokens to the NameService contract
+Staker Registration: Registers NameService as a privileged staker
+Treasury Configuration: Sets the Treasury contract address for balance operations
+Security Features
+One-Time Execution: Breaker flag prevents multiple calls
+Essential Integration: Configures critical system dependencies
+Automatic Staking: NameService receives staker privileges automatically
+Initial Funding: NameService gets operational balance for fees and operations
+Workflow
+// Initial state: breakerSetupNameServiceAddress == FLAG_IS_STAKER (0x01)
+// After execution: breakerSetupNameServiceAddress == 0x00 (prevents re-execution)
+
+evvm._setupNameServiceAndTreasuryAddress(nameServiceAddr, treasuryAddr);
+
+Admin Management Functions
+The contract implements time-delayed admin transfers with a 1-day security period.
+
+proposeAdmin
+Function Type: external onlyAdmin
+Function Signature: proposeAdmin(address)
+
+Proposes a new admin address with a 1-day time delay for security.
+
+Input Parameters
+Parameter	Type	Description
+_newOwner	address	Address of the proposed new admin
+Security Features
+1-day time delay: Shorter than implementation upgrades but provides safety
+Non-zero validation: Prevents setting admin to zero address
+Self-assignment prevention: Cannot propose current admin as new admin
+Admin-only access: Only current admin can propose changes
+Workflow
+Current admin proposes a new admin address
+System sets acceptance deadline (current time + 1 day)
+Proposed admin must accept the role after the time delay
+Current admin can cancel the proposal if needed
+rejectProposalAdmin
+Function Type: external onlyAdmin
+Function Signature: rejectProposalAdmin()
+
+Cancels a pending admin change proposal.
+
+Security Features
+Admin-only access: Only current admin can reject proposals
+Immediate effect: Cancellation takes effect immediately
+State cleanup: Clears both proposal address and acceptance deadline
+acceptAdmin
+Function Type: external
+Function Signature: acceptAdmin()
+
+Allows the proposed admin to accept the admin role after the time delay.
+
+Security Features
+Time delay enforcement: Can only be called after the acceptance deadline
+Proposed admin only: Only the proposed admin can call this function
+Two-step process: Requires both proposal and acceptance for security
+Workflow
+Verifies that the current timestamp exceeds the acceptance deadline
+Verifies that the caller is the proposed admin
+Updates the current admin to the proposed admin
+Clears the proposal state
+NameService Integration
+setNameServiceAddress
+Function Type: external onlyAdmin
+Function Signature: setNameServiceAddress(address)
+
+Updates the NameService contract address for identity resolution.
+
+Input Parameters
+Parameter	Type	Description
+_nameServiceAddress	address	Address of the new NameService contract
+Security Features
+Admin-only access: Only admin can change NameService integration
+Immediate effect: Change takes effect immediately
+Critical integration: Affects identity resolution in payments
+Use Cases
+Upgrading to a new NameService contract version
+Switching to a different identity resolution system
+Fixing integration issues with the current NameService
+Usage Examples
+Admin Transfer Process
+// 1. Current admin proposes new admin
+evvm.proposeAdmin(newAdminAddress);
+
+// 2. Wait 1 day
+
+// 3. Proposed admin accepts the role
+// (must be called by the proposed admin)
+evvm.acceptAdmin();
+
+Security Considerations
+Time Delays
+Admin changes: 1-day delay for administrative control
+Access Control
+All administrative functions require onlyAdmin modifier
+Two-step process for admin transfers prevents accidental loss of control
+Cancellation mechanisms allow recovery from erroneous proposals
+State Management
+Admin proposals can only be executed after time delays
+State is properly cleaned up after execution or cancellation
+Clear proposal and acceptance process prevents confusion
+
+
+
+https://www.evvm.info/docs/EVVM/IdentityResolution
+
+
+
+Identity Resolution Functions
+The EVVM contract integrates with the NameService to provide identity-based payment functionality, allowing users to send payments to human-readable usernames instead of complex addresses. This section covers the identity resolution system and NameService integration.
+
+NameService Integration
+The EVVM contract uses the NameService to resolve usernames to wallet addresses, enabling user-friendly payment experiences while maintaining the security of blockchain addresses.
+
+Identity Resolution Process
+When a payment includes a to_identity parameter, the EVVM contract performs the following resolution process:
+
+Identity Validation: Checks if the provided identity exists in the NameService
+Strict Verification: Ensures the identity is properly registered and active
+Address Resolution: Retrieves the wallet address associated with the identity
+Payment Processing: Executes the payment to the resolved address
+NameService Functions Used
+The EVVM contract utilizes several NameService functions for identity resolution:
+
+verifyStrictAndGetOwnerOfIdentity
+Function Purpose: Strict identity verification with address resolution
+Usage Context: Primary method for secure identity-to-address conversion
+
+address recipient = NameService(nameServiceAddress)
+    .verifyStrictAndGetOwnerOfIdentity(to_identity);
+
+Security Features:
+
+Performs comprehensive validation of identity status
+Ensures identity is not expired or suspended
+Returns the current owner address
+Reverts if identity is invalid or inactive
+strictVerifyIfIdentityExist
+Function Purpose: Checks identity existence without address resolution
+Usage Context: Used in batch operations for efficiency
+
+bool exists = NameService(nameServiceAddress)
+    .strictVerifyIfIdentityExist(to_identity);
+
+Use Cases:
+
+Batch payment validation before processing
+Efficient existence checks in dispersePay operations
+Pre-validation in multi-recipient transactions
+getOwnerOfIdentity
+Function Purpose: Retrieves address associated with an identity
+Usage Context: Used after existence verification
+
+address owner = NameService(nameServiceAddress)
+    .getOwnerOfIdentity(to_identity);
+
+Security Note: Should only be used after confirming identity existence with strictVerifyIfIdentityExist.
+
+Identity Resolution in Payment Functions
+Single Payment Functions
+In the unified pay function, identity resolution follows this pattern:
+
+address to = !Strings.equal(to_identity, "")
+    ? NameService(nameServiceAddress).verifyStrictAndGetOwnerOfIdentity(to_identity)
+    : to_address;
+
+Logic Flow:
+
+Check if to_identity is provided (not empty string)
+If identity provided: Use verifyStrictAndGetOwnerOfIdentity for secure resolution
+If identity empty: Use the provided to_address directly
+Proceed with payment to the resolved address
+Batch Payment Functions
+In payMultiple, each payment in the batch undergoes individual identity resolution:
+
+to_aux = !Strings.equal(payData[iteration].to_identity, "")
+    ? NameService(nameServiceAddress).verifyStrictAndGetOwnerOfIdentity(
+        payData[iteration].to_identity
+    )
+    : payData[iteration].to_address;
+
+Benefits:
+
+Each payment can use different resolution methods (identity or address)
+Failed identity resolution only affects individual payments in the batch
+Maintains security across all payments in the batch
+Disperse Payment Functions
+In dispersePay, the resolution process is optimized for efficiency:
+
+if (!Strings.equal(toData[i].to_identity, "")) {
+    if (NameService(nameServiceAddress).strictVerifyIfIdentityExist(
+        toData[i].to_identity
+    )) {
+        to_aux = NameService(nameServiceAddress).getOwnerOfIdentity(
+            toData[i].to_identity
+        );
+    }
+} else {
+    to_aux = toData[i].to_address;
+}
+
+Optimization Features:
+
+Two-step verification for better error handling
+Continues processing even if some identities are invalid
+Efficient batch processing of multiple recipients
+NameService Configuration
+Setup Process
+The NameService integration is configured during contract deployment and setup:
+
+Initial Setup
+function _setupNameServiceAddress(address _nameServiceAddress) external {
+    if (breakerSetupNameServiceAddress == 0x00) {
+        revert();
+    }
+    nameServiceAddress = _nameServiceAddress;
+    balances[nameServiceAddress][evvmMetadata.principalTokenAddress] = 
+        10000 * 10 ** 18;
+    stakerList[nameServiceAddress] = FLAG_IS_STAKER;
+}
+
+Setup Features:
+
+One-time configuration with breaker flag protection
+Provides initial MATE token balance (10,000 MATE) to NameService
+Registers NameService as a privileged staker
+Prevents multiple setup calls for security
+Administrative Updates
+function setNameServiceAddress(address _nameServiceAddress) external onlyAdmin {
+    nameServiceAddress = _nameServiceAddress;
+}
+
+Administrative Control:
+
+Admin can update NameService address if needed
+Immediate effect for operational flexibility
+Used for upgrades or integration changes
+Security Considerations
+Identity Validation
+Strict Verification: Always use verifyStrictAndGetOwnerOfIdentity for secure resolution
+Existence Checks: Verify identity exists before attempting resolution
+Error Handling: Proper handling of invalid or expired identities
+Fallback Mechanism: Support both identity and direct address payments
+Attack Vectors
+Identity Spoofing
+Protection: NameService handles identity uniqueness and ownership
+Validation: Strict verification prevents unauthorized identity use
+Resolution: Only valid, active identities can be resolved
+Identity Expiration
+Handling: Expired identities fail strict verification
+Fallback: Users can always use direct addresses
+Notification: Clear error messages for resolution failures
+Service Disruption
+Resilience: Direct address payments remain available
+Isolation: NameService issues don't affect address-based payments
+Recovery: Admin can update NameService address if needed
+Best Practices
+For Users
+Verify Identity: Ensure the identity you're paying to is correct and active
+Fallback Option: Keep recipient addresses as backup for critical payments
+Recent Validation: Verify identity ownership before large payments
+For Developers
+Error Handling: Implement proper error handling for identity resolution failures
+Validation: Always validate identity format before attempting resolution
+Caching: Consider caching resolved addresses for frequently used identities
+User Experience: Provide clear feedback for identity resolution status
+For Integrators
+Dual Support: Support both identity and address-based payments
+Validation UI: Provide real-time identity validation in user interfaces
+Error Messages: Display helpful error messages for resolution failures
+Address Display: Show resolved addresses to users for confirmation
+Usage Examples
+Identity-Based Payment
+// Payment using identity
+evvm.pay(
+    senderAddress,
+    address(0),          // Empty address
+    "alice.mate",        // Identity to resolve
+    tokenAddress,
+    amount,
+    priorityFee,
+    nonce,
+    priorityFlag,        // async/sync flag
+    executor,
+    signature
+);
+
+Address-Based Payment
+// Payment using direct address
+evvm.pay(
+    senderAddress,
+    recipientAddress,    // Direct address
+    "",                  // Empty identity
+    tokenAddress,
+    amount,
+    priorityFee,
+    executor,
+    signature
+);
+
+Mixed Batch Payment
+PayData[] memory payments = new PayData[](2);
+
+// Payment 1: Using identity
+payments[0] = PayData({
+    from: sender,
+    to_address: address(0),
+    to_identity: "alice.mate",
+    token: tokenAddress,
+    amount: amount1,
+    // ... other fields
+});
+
+// Payment 2: Using direct address  
+payments[1] = PayData({
+    from: sender,
+    to_address: recipientAddress,
+    to_identity: "",
+    token: tokenAddress,
+    amount: amount2,
+    // ... other fields
+});
+
+evvm.payMultiple(payments);
+
+Integration Benefits
+User Experience
+Human-Readable: Users can send payments to memorable usernames
+Error Reduction: Reduces address copy-paste errors
+Social Integration: Enables social payment features
+Developer Benefits
+Abstraction: Simplifies address management in applications
+Flexibility: Supports both traditional and identity-based payments
+Future-Proof: Easy integration with identity evolution
+Ecosystem Benefits
+Adoption: Lowers barriers to blockchain payment adoption
+Integration: Enables rich social and identity features
+Standardization: Provides consistent identity resolution across services
+
+https://www.evvm.info/docs/EVVM/EconomicSystem
+
+
+Economic System Functions
+The EVVM ecosystem implements a sophisticated economic system with deflationary tokenomics, reward distribution, and era-based transitions. This section covers the economic functions that manage token supply, rewards, and the evolution of the system's monetary policy.
+
+Token Economics Overview
+The EVVM economic system is built around the MATE token with several key features:
+
+Deflationary Mechanism: Reward halving through era transitions
+Staker Incentives: Enhanced rewards for network participants
+Random Bonuses: Lottery-style rewards for era transition triggers
+Supply Management: Controlled token distribution and burning
+Era Transition System
+recalculateReward
+Function Type: public
+Function Signature: recalculateReward()
+
+Triggers a reward recalculation and era transition in the token economy when the total supply exceeds the current era threshold.
+
+Era Transition Mechanism
+The function implements a deflationary system where:
+
+Threshold Check: Activates when totalSupply > eraTokens
+Era Adjustment: Moves half of remaining tokens to next era threshold
+Reward Halving: Cuts base reward amount in half for future transactions
+Bonus Distribution: Provides random MATE bonus to the caller (1-5083x reward)
+Economic Formula
+// Era threshold update
+evvmMetadata.eraTokens += ((evvmMetadata.totalSupply - evvmMetadata.eraTokens) / 2);
+
+// Random bonus calculation
+uint256 bonus = evvmMetadata.reward * getRandom(1, 5083);
+
+// Reward halving
+evvmMetadata.reward = evvmMetadata.reward / 2;
+
+Economic Impact
+Scarcity Creation: Era thresholds become progressively harder to reach
+Inflation Reduction: Reward halving reduces token inflation over time
+Early Incentive: Higher rewards for early ecosystem participation
+Random Incentive: Lottery mechanism for era transition triggering
+Workflow
+Eligibility Check: Verifies total supply exceeds current era tokens threshold
+Era Calculation: Updates era threshold by adding half the excess supply
+Bonus Award: Grants random MATE bonus (1-5083x base reward) to caller
+Reward Halving: Reduces base reward for all future transactions
+State Update: Updates metadata to reflect new economic parameters
+Access Control
+Public Function: Anyone can trigger when conditions are met
+Conditional Execution: Only works when total supply exceeds era threshold
+Single Execution: Each era transition can only occur once per threshold
+getRandom
+Function Type: internal view
+Function Signature: getRandom(uint256,uint256)
+
+Generates pseudo-random numbers for era transition bonuses and other system randomness needs.
+
+Input Parameters
+Parameter	Type	Description
+min	uint256	Minimum value (inclusive)
+max	uint256	Maximum value (inclusive)
+Return Value
+Type	Description
+uint256	Random number between min and max (inclusive)
+Randomness Source
+return min + (uint256(
+    keccak256(abi.encodePacked(block.timestamp, block.prevrandao))
+) % (max - min + 1));
+
+Components:
+
+block.timestamp: Current block timestamp for variability
+block.prevrandao: Validator randomness from consensus layer
+Keccak256 Hashing: Cryptographic mixing of randomness sources
+Modulo Operation: Maps to desired range
+Security Considerations
+Non-Critical Randomness: Suitable for reward bonuses and incentives
+Predictability: Not suitable for high-stakes applications
+Manipulation Resistance: Difficult to manipulate but not impossible
+Block-Based: Updates with each new block
+Reward Distribution System
+_giveReward
+Function Type: internal
+Function Signature: _giveReward(address,uint256)
+
+Internal function that distributes MATE token rewards to stakers for transaction processing and network participation.
+
+Input Parameters
+Parameter	Type	Description
+user	address	Address of the staker to receive rewards
+amount	uint256	Number of transactions or reward multiplier
+Return Value
+Type	Description
+bool	True if reward distribution completed successfully
+Reward Calculation
+uint256 principalReward = evvmMetadata.reward * amount;
+balances[user][evvmMetadata.principalTokenAddress] += principalReward;
+
+Formula:
+
+Total Reward = Base Reward × Transaction Count
+Base Reward: Current system reward amount (halves with each era)
+Transaction Count: Number of successful operations processed
+Use Cases
+Single Payments: 1x reward for processing individual payments
+Batch Payments: Multiple rewards based on successful transaction count
+Bridge Operations: Rewards for Fisher Bridge processing
+Contract Operations: Rewards for automated system operations
+Integration Points
+The reward system is integrated throughout EVVM functions:
+
+// Single payment reward
+_giveReward(msg.sender, 1);
+
+// Batch payment reward
+_giveReward(msg.sender, successfulTransactions);
+
+// Bridge operation reward  
+_giveReward(msg.sender, 1);
+
+Economic State Functions
+Token Supply Management
+getPrincipalTokenTotalSupply
+Function Type: view
+Function Signature: getPrincipalTokenTotalSupply()
+
+Returns the current total supply of MATE tokens used for era transition calculations.
+
+getEraPrincipalToken
+Function Type: view
+Function Signature: getEraPrincipalToken()
+
+Returns the current era token threshold that triggers the next reward halving event.
+
+getRewardAmount
+Function Type: view
+Function Signature: getRewardAmount()
+
+Returns the current base reward amount distributed to stakers for transaction processing.
+
+Economic Metadata
+getEvvmMetadata
+Function Type: view
+Function Signature: getEvvmMetadata()
+
+Returns the complete economic configuration including token addresses, rewards, supply data, and era thresholds.
+
+Economic Scenarios
+Era Transition Example
+Consider the following economic state:
+
+Initial State:
+- Total Supply: 1,000,000 MATE
+- Era Tokens: 800,000 MATE  
+- Base Reward: 100 MATE
+- Excess Supply: 200,000 MATE (1,000,000 - 800,000)
+
+After Era Transition:
+- Era Tokens: 900,000 MATE (800,000 + 200,000/2)
+- Base Reward: 50 MATE (100/2)
+- Caller Bonus: 50-254,150 MATE (50 * random(1,5083))
+- Next Threshold: 900,000 MATE
+
+Reward Halving Impact
+Era	Base Reward	Era Threshold	Economic Phase
+1	100 MATE	1M MATE	High Inflation
+2	50 MATE	~1.5M MATE	Moderate Inflation
+3	25 MATE	~2M MATE	Low Inflation
+4	12.5 MATE	~2.5M MATE	Deflationary
+5	6.25 MATE	~3M MATE	Ultra Deflationary
+Staker Economics
+Transaction Processing Rewards
+Operation Type	Base Reward	Additional Benefits
+Single Payment	1x reward	Priority fees
+Batch Payment	Nx reward	Priority fees
+Bridge Operation	1x reward	Bridge fees
+Contract Operation	1x reward	Service fees
+Era Transition Bonuses
+Random bonus multipliers for triggering era transitions:
+
+Minimum Bonus: 1x base reward
+Maximum Bonus: 5083x base reward
+Average Bonus: ~2542x base reward
+Expected Value: Significant incentive for monitoring
+Economic Security
+Inflation Control
+Automatic Halving: Reduces inflation with each era transition
+Supply Caps: Era thresholds create natural supply limits
+Staker Distribution: Rewards distributed to active participants only
+Economic Attacks
+Era Manipulation
+Attack Vector: Attempting to manipulate era transition timing
+Protection: Public function allows anyone to trigger when eligible
+Mitigation: Random bonuses reduce predictable profit
+Reward Farming
+Attack Vector: Gaming the reward system for excessive tokens
+Protection: Staker-only rewards and transaction validation
+Mitigation: Legitimate transaction processing required
+Supply Inflation
+Attack Vector: Excessive reward distribution inflating supply
+Protection: Automatic halving mechanism reduces rewards over time
+Mitigation: Era thresholds become progressively harder to reach
+Integration Guidelines
+For Stakers
+Monitor Era Progress: Track total supply approaching era thresholds
+Trigger Transitions: Call recalculateReward() when eligible for bonuses
+Optimize Processing: Focus on high-volume periods for maximum rewards
+Long-term Planning: Understand reward reduction trajectory
+For Developers
+Reward Integration: Properly integrate _giveReward() in new functions
+Economic Queries: Use getter functions for economic state information
+Era Monitoring: Build tools to track era transition progress
+Reward Calculation: Account for changing reward amounts in projections
+For Users
+Understand Economics: Learn how era transitions affect system costs
+Timing Strategies: Consider era transitions when planning large operations
+Staker Benefits: Understand advantages of becoming a staker
+Long-term Value: Recognize deflationary nature of tokenomics
+Economic Monitoring
+Key Metrics
+Total Supply Growth: Rate of MATE token creation
+Era Progression: Distance to next era transition
+Reward Efficiency: Rewards per transaction over time
+Staker Participation: Number of active reward recipients
+Health Indicators
+Inflation Rate: Current rate of token supply growth
+Era Transition Frequency: How often transitions occur
+Reward Distribution: Concentration of rewards among stakers
+Economic Activity: Transaction volume and reward generation
+Future Economic Evolution
+Predicted Trajectory
+As the system matures:
+
+Early Growth: High rewards attract initial stakers and users
+Expansion Phase: Increased adoption drives era transitions
+Maturation: Slower era transitions as thresholds become harder
+Stability: Ultra-low inflation creates stable economic environment
+Sustainability: System reaches long-term sustainable reward levels
+Adaptation Mechanisms
+Community Governance: Future economic parameter adjustments
+Market Forces: Natural balance between rewards and participation
+Technical Evolution: New features may introduce economic innovations
+Cross-Chain Integration: Economic effects of multi-chain expansion
+
+https://www.evvm.info/docs/EVVM/StakingIntegration
+
+
+Staking Integration Functions
+The EVVM contract integrates closely with the staking system to manage staker status, privileges, and rewards. This integration enables enhanced functionality for MATE token stakers while maintaining secure access control and reward distribution.
+
+Staking System Overview
+The EVVM staking integration provides:
+
+Staker Status Management: Control over who can earn staking rewards
+Enhanced Privileges: Special access to staker-only functions
+Reward Distribution: Integrated MATE token rewards for stakers
+Cross-Contract Communication: Secure integration with staking contract
+Staker Status Functions
+pointStaker
+Function Type: public
+Function Signature: pointStaker(address,bytes1)
+
+Updates staker status for a user address, controlling access to staking privileges and rewards.
+
+Input Parameters
+Parameter	Type	Description
+user	address	Address to update staker status for
+answer	bytes1	Flag indicating staker status/type
+Access Control
+if (msg.sender != stakingContractAddress) {
+    revert();
+}
+
+Security Features:
+
+Staking Contract Only: Only the authorized staking contract can call this function
+Centralized Control: Ensures staker status changes are properly authorized
+Integration Security: Prevents unauthorized staker privilege escalation
+Staker Status Values
+The answer parameter uses standardized flag values:
+
+Value	Meaning	Description
+FLAG_IS_STAKER	Active Staker	User has staking privileges
+0x00	Non-Staker	User has no staking privileges
+Other values	Custom Status	Future staker types or special status
+Integration Flow
+Staking Contract Event: User stakes or unstakes MATE tokens
+Status Update: Staking contract calls pointStaker() to update status
+EVVM Update: User's staker status is updated in EVVM contract
+Privilege Changes: User gains/loses automatic staker benefits when executing payments
+isAddressStaker
+Function Type: view
+Function Signature: isAddressStaker(address)
+
+Checks if an address is registered as an active staker with transaction processing privileges.
+
+Input Parameters
+Parameter	Type	Description
+user	address	Address to check staker status for
+Return Value
+Type	Description
+bool	True if the address is a registered staker
+Implementation
+function isAddressStaker(address user) public view returns (bool) {
+    return stakerList[user] == FLAG_IS_STAKER;
+}
+
+Validation Logic:
+
+Checks if user's status equals the active staker flag
+Returns boolean for easy integration in other functions
+Used throughout EVVM for privilege verification
+Staker Privileges
+Enhanced Payment Processing
+Stakers receive special privileges in payment processing functions:
+
+Staker Payment Benefits
+Automatic Detection: The pay function automatically detects if executor is a staker
+Enhanced Rewards: Staker executors receive MATE token rewards for processing
+Priority Fees: Staker executors collect priority fees from users
+Batch Processing: Special rewards for batch payment processing
+Privilege Detection
+if (isAddressStaker(msg.sender)) {
+    // Staker gets priority fee and rewards
+    if (priorityFee > 0) {
+        if (!_updateBalance(from, msg.sender, token, priorityFee))
+            revert ErrorsLib.UpdateBalanceFailed();
+    }
+    _giveReward(msg.sender, 1);
+}
+
+This automatic detection is used in:
+
+pay (unified payment function)
+payMultiple (for enhanced rewards)
+dispersePay (single-source multi-recipient)
+Bridge operations
+Reward System Integration
+Standard Rewards
+Stakers receive base MATE rewards for transaction processing:
+
+_giveReward(msg.sender, 1);  // Single transaction reward
+
+Batch Rewards
+Enhanced rewards for batch processing:
+
+_giveReward(msg.sender, successfulTransactions);  // Multiple transaction rewards
+
+Bridge Rewards
+Special rewards for Fisher Bridge operations:
+
+balances[msg.sender][evvmMetadata.principalTokenAddress] += evvmMetadata.reward;
+
+Contract Integration
+Staking Contract Address
+getStakingContractAddress
+Function Type: view
+Function Signature: getStakingContractAddress()
+
+Returns the authorized staking contract address that can modify staker status.
+
+Setup and Configuration
+The staking contract address is set during EVVM deployment:
+
+constructor(
+    address _initialOwner,
+    address _stakingContractAddress,
+    EvvmMetadata memory _evvmMetadata
+) {
+    stakingContractAddress = _stakingContractAddress;
+    // Initial MATE token allocation to staking contract
+    balances[_stakingContractAddress][evvmMetadata.principalTokenAddress] = 
+        getRewardAmount() * 2;
+    // Register staking contract as staker
+    stakerList[_stakingContractAddress] = FLAG_IS_STAKER;
+}
+
+Initial Setup Features:
+
+Address Registration: Sets authorized staking contract
+Initial Funding: Provides MATE tokens for reward distribution
+Staker Status: Grants staking contract staker privileges
+Integration Ready: Prepares for cross-contract communication
+Cross-Contract Communication
+Staking Contract → EVVM
+When users stake or unstake tokens:
+
+User Action: Stakes/unstakes MATE tokens in staking contract
+Status Calculation: Staking contract determines new staker status
+EVVM Update: Staking contract calls pointStaker() to update status
+Privilege Change: User gains/loses staker privileges in EVVM
+EVVM → Staking Contract
+EVVM provides reward distribution to the staking contract:
+
+Initial Allocation: MATE tokens provided during deployment
+Ongoing Rewards: System generates rewards for distribution
+Contract Balance: Staking contract maintains MATE balance for rewards
+Staker Economics
+Cost-Benefit Analysis
+Staking Requirements
+To become a staker, users typically need to:
+
+Stake MATE Tokens: Lock tokens in staking contract
+Maintain Balance: Keep minimum staking requirements
+Active Participation: Process transactions to earn rewards
+Network Contribution: Provide validation and processing services
+Staker Benefits
+Benefit Type	Description	Value
+MATE Rewards	Base rewards for transaction processing	Variable (era-based)
+Priority Fees	User-paid fees for transaction processing	Market-determined
+Bridge Fees	Fees from Fisher Bridge operations	User-paid + MATE rewards
+Enhanced Access	Access to staker-only functions	Exclusive privileges
+Network Influence	Participation in network validation	Governance potential
+Reward Calculations
+Single Transaction Rewards
+// Base MATE reward
+uint256 baseReward = evvmMetadata.reward;
+
+// Priority fee (if applicable)
+uint256 priorityFee = userSpecifiedFee;
+
+// Total earnings = Base reward + Priority fee
+uint256 totalEarnings = baseReward + priorityFee;
+
+Batch Transaction Rewards
+// Multiple base rewards
+uint256 totalRewards = evvmMetadata.reward * successfulTransactions;
+
+// Multiple priority fees (if applicable)
+uint256 totalFees = sum(individualPriorityFees);
+
+// Total earnings = Multiple rewards + Total fees
+uint256 totalEarnings = totalRewards + totalFees;
+
+Integration Best Practices
+For Staking Contract Developers
+Secure Integration
+Address Validation: Ensure EVVM contract address is correct
+Access Control: Properly restrict who can trigger status updates
+Error Handling: Handle EVVM contract failures gracefully
+State Synchronization: Keep staking and EVVM status in sync
+Status Management
+// Example staking contract integration
+function updateStakerStatus(address user) internal {
+    if (isUserStaker(user)) {
+        IEvvm(evvmAddress).pointStaker(user, FLAG_IS_STAKER);
+    } else {
+        IEvvm(evvmAddress).pointStaker(user, 0x00);
+    }
+}
+
+For EVVM Integrators
+Staker Verification
+Always verify staker status before granting privileges:
+
+function privilegedFunction() external {
+    require(evvm.isAddressStaker(msg.sender), "Not a staker");
+    // Privileged functionality here
+}
+
+Reward Distribution
+Properly integrate reward distribution:
+
+function processTransaction() external {
+    // Transaction processing logic
+    
+    if (evvm.isAddressStaker(msg.sender)) {
+        // Grant rewards through EVVM internal function
+        // This is handled automatically by EVVM functions
+    }
+}
+
+For Users
+Becoming a Staker
+Research Requirements: Understand staking token requirements
+Evaluate Economics: Calculate potential rewards vs. staking costs
+Stake Tokens: Follow staking contract procedures
+Verify Status: Confirm staker status in EVVM using isAddressStaker()
+Start Processing: Begin earning rewards through transaction processing
+Maintaining Staker Status
+Monitor Requirements: Keep track of minimum staking requirements
+Stay Active: Regularly process transactions to earn rewards
+Manage Rewards: Properly handle earned MATE tokens and fees
+Update Status: Ensure status remains synchronized across contracts
+Security Considerations
+Access Control
+Staking Contract Security
+Single Authority: Only one contract can update staker status
+Address Verification: Staking contract address must be validated
+Function Restrictions: pointStaker() is restricted to staking contract only
+Status Manipulation Prevention
+Centralized Control: Prevents unauthorized staker privilege escalation
+Contract-Only Updates: EOAs cannot directly modify staker status
+Synchronization: Status changes must originate from staking contract
+Integration Risks
+Contract Upgrade Risks
+Address Changes: Staking contract upgrades may require EVVM updates
+Interface Changes: Modified interfaces may break integration
+State Migration: Status synchronization during upgrades
+Failure Scenarios
+Staking Contract Failure: EVVM continues operating with existing staker status
+Communication Failure: Status updates may be delayed or lost
+Network Issues: Cross-contract calls may fail during network congestion
+Monitoring and Maintenance
+Health Indicators
+Integration Health
+Status Synchronization: Staking contract and EVVM status alignment
+Update Frequency: Rate of staker status changes
+Reward Distribution: Proper MATE reward allocation
+Cross-Contract Calls: Success rate of pointStaker() calls
+System Metrics
+Active Stakers: Number of addresses with staker status
+Reward Volume: Total MATE rewards distributed to stakers
+Transaction Processing: Volume of staker-processed transactions
+Integration Errors: Failed cross-contract communications
+Troubleshooting
+Common Issues
+Status Sync Failure
+
+Check staking contract integration
+Verify EVVM contract address in staking contract
+Review recent staker status changes
+Reward Distribution Issues
+
+Verify staker status using isAddressStaker()
+Check MATE token balances
+Review transaction processing logs
+Integration Breaks
+
+Validate contract addresses
+Check interface compatibility
+Review access control configurations
+Future Integration Enhancements
+Planned Features
+Multi-Tier Staking: Different staker levels with varying privileges
+Governance Integration: Staker voting rights in system governance
+Cross-Chain Staking: Staking integration across multiple chains
+Advanced Rewards: More sophisticated reward calculation mechanisms
+Extensibility
+The current integration design supports:
+
+Multiple Staker Types: Using different flag values in pointStaker()
+Enhanced Privileges: New functions can easily check staker status
+Reward Evolution: Flexible reward system can accommodate changes
+Protocol Evolution: Integration can adapt to new staking mechanisms
+
+
+https://www.evvm.info/docs/EVVM/ProxyManagement
+
+Proxy Management Functions
+The EVVM contract uses a sophisticated proxy pattern with time-delayed upgrades to ensure security and allow for community review of critical system changes. This section covers all proxy-related functions for implementation management.
+
+Proxy Pattern Overview
+The EVVM contract implements an upgradeable proxy pattern with the following security features:
+
+Time-Delayed Upgrades: 30-day delay for implementation changes
+Community Review: Extended time for security audits and community validation
+Admin Control: Only authorized admin can propose and execute upgrades
+Cancellation Mechanism: Ability to reject proposed upgrades before execution
+Fallback Delegation: Automatic delegation to current implementation
+Implementation Management Functions
+proposeImplementation
+Function Type: external onlyAdmin
+Function Signature: proposeImplementation(address)
+
+Proposes a new implementation contract for the proxy with a mandatory 30-day time delay for security.
+
+Input Parameters
+Parameter	Type	Description
+_newImpl	address	Address of the new implementation contract
+Security Features
+30-day time delay: Allows comprehensive community review and validation
+Admin-only access: Only current admin can propose upgrades
+Single proposal: Only one implementation proposal can be pending at a time
+Cancellable: Can be rejected using rejectUpgrade() before deadline
+Workflow
+Admin Proposal: Admin calls proposeImplementation() with new implementation address
+Deadline Setting: System sets acceptance deadline (current timestamp + 30 days)
+Community Review: 30-day period for security audits and community validation
+Optional Cancellation: Admin can cancel using rejectUpgrade() if issues are found
+Execution: After 30 days, admin can execute upgrade using acceptImplementation()
+Implementation
+function proposeImplementation(address _newImpl) external onlyAdmin {
+    proposalImplementation = _newImpl;
+    timeToAcceptImplementation = block.timestamp + 30 days;
+}
+
+rejectUpgrade
+Function Type: external onlyAdmin
+Function Signature: rejectUpgrade()
+
+Cancels a pending implementation upgrade proposal before the time delay expires.
+
+Security Features
+Admin-only access: Only current admin can reject upgrades
+Immediate effect: Cancellation takes effect immediately
+Complete reset: Clears both proposal address and acceptance deadline
+Emergency mechanism: Allows quick response to discovered security issues
+Use Cases
+Security Issues: Community or auditors identify problems in proposed implementation
+Better Alternative: Superior implementation becomes available during review period
+Administrative Decision: Admin decides to withdraw the upgrade proposal
+Emergency Response: Quick cancellation of problematic proposals
+Implementation
+function rejectUpgrade() external onlyAdmin {
+    proposalImplementation = address(0);
+    timeToAcceptImplementation = 0;
+}
+
+acceptImplementation
+Function Type: external onlyAdmin
+Function Signature: acceptImplementation()
+
+Executes a pending implementation upgrade after the mandatory 30-day time delay has passed.
+
+Security Features
+Time delay enforcement: Cannot be called before the acceptance deadline
+Admin-only access: Only current admin can execute upgrades
+Automatic cleanup: Clears proposal data after successful upgrade
+Atomic execution: Implementation change happens atomically
+Execution Requirements
+Valid Proposal: Must have a pending implementation proposal
+Time Elapsed: Current timestamp must exceed the acceptance deadline
+Admin Authorization: Must be called by the current admin
+Clean State: Proposal state is cleared after execution
+Workflow
+Deadline Verification: Confirms that 30 days have passed since proposal
+Implementation Update: Sets current implementation to proposed implementation
+State Cleanup: Clears proposal implementation and acceptance deadline
+Proxy Activation: New implementation becomes active for all delegatecalls
+Implementation
+function acceptImplementation() external onlyAdmin {
+    if (block.timestamp < timeToAcceptImplementation) revert();
+    currentImplementation = proposalImplementation;
+    proposalImplementation = address(0);
+    timeToAcceptImplementation = 0;
+}
+
+Proxy Query Functions
+getCurrentImplementation
+Function Type: view
+Function Signature: getCurrentImplementation()
+
+Gets the current active implementation contract address used by the proxy for delegatecalls.
+
+Return Value
+Type	Description
+address	Address of the current implementation contract
+Use Cases
+Integration Verification: Confirm which implementation is currently active
+Debugging: Identify implementation during troubleshooting
+Monitoring: Track implementation changes over time
+Interface Detection: Determine available functions in current implementation
+getProposalImplementation
+Function Type: view
+Function Signature: getProposalImplementation()
+
+Gets the proposed implementation contract address that is pending approval for proxy upgrade.
+
+Return Value
+Type	Description
+address	Address of the proposed implementation contract (zero if none)
+Use Cases
+Proposal Monitoring: Track pending implementation upgrades
+Community Review: Allow community to examine proposed implementations
+Security Analysis: Enable security audits of pending upgrades
+Decision Making: Provide information for upgrade approval decisions
+getTimeToAcceptImplementation
+Function Type: view
+Function Signature: getTimeToAcceptImplementation()
+
+Gets the acceptance deadline for the pending implementation upgrade.
+
+Return Value
+Type	Description
+uint256	Timestamp when implementation upgrade can be executed (0 if no pending proposal)
+Use Cases
+Timing Information: Know when upgrade can be executed
+Countdown Tracking: Monitor time remaining in review period
+Automation: Enable automated execution after deadline
+Planning: Schedule upgrade execution and related activities
+Fallback Mechanism
+Delegatecall Fallback
+The EVVM contract implements a sophisticated fallback function that automatically delegates calls to the current implementation:
+
+fallback() external {
+    if (currentImplementation == address(0)) revert();
+
+    assembly {
+        // Copy the entire calldata
+        calldatacopy(0, 0, calldatasize())
+
+        // Delegatecall to implementation
+        let result := delegatecall(
+            gas(), 
+            sload(currentImplementation.slot), 
+            0, 
+            calldatasize(), 
+            0, 
+            0
+        )
+
+        // Copy the return data
+        returndatacopy(0, 0, returndatasize())
+
+        // Handle the result
+        switch result
+        case 0 {
+            revert(0, returndatasize()) // Forward revert
+        }
+        default {
+            return(0, returndatasize()) // Forward return
+        }
+    }
+}
+
+Fallback Features
+Automatic Delegation: Routes unknown function calls to current implementation
+Gas Forwarding: Passes all available gas to implementation
+Data Preservation: Maintains exact calldata and return data
+Error Forwarding: Properly forwards reverts and error messages
+Security Check: Reverts if no implementation is set
+Security Considerations
+Upgrade Security
+Time Delay Benefits
+Community Review: 30 days allows thorough security analysis
+Vulnerability Discovery: Extended time for finding implementation bugs
+Social Consensus: Time for community discussion and consensus building
+Emergency Response: Ability to cancel upgrades if issues are found
+Access Control
+Admin-Only Operations: All proxy management restricted to admin
+Single Point of Control: Centralized but time-delayed upgrade authority
+Proposal Validation: Admin can review proposals before execution
+Emergency Cancellation: Quick response capability for security issues
+Attack Vectors
+Malicious Implementation
+Protection: 30-day review period allows security analysis
+Mitigation: Community can identify malicious code before execution
+Response: Admin can cancel malicious proposals using rejectUpgrade()
+Admin Compromise
+Risk: Compromised admin could propose malicious implementations
+Mitigation: 30-day delay provides time to detect compromise
+Response: Community alert systems and emergency procedures
+Implementation Bugs
+Risk: New implementations may contain bugs or vulnerabilities
+Mitigation: Extended review period and testing requirements
+Response: Cancel upgrade and deploy fixed implementation
+Integration Guidelines
+For Developers
+Monitoring Upgrades
+// Check for pending upgrades
+address pendingImpl = evvm.getProposalImplementation();
+uint256 deadline = evvm.getTimeToAcceptImplementation();
+
+if (pendingImpl != address(0)) {
+    // Upgrade is pending - analyze and prepare
+    uint256 timeRemaining = deadline - block.timestamp;
+    // Implement monitoring and preparation logic
+}
+
+Implementation Development
+Security First: Prioritize security in implementation development
+Comprehensive Testing: Extensive testing before proposal
+Community Engagement: Engage community during development
+Documentation: Provide detailed upgrade documentation
+For Community
+Review Process
+Code Analysis: Examine proposed implementation code
+Security Audit: Conduct or review security audits
+Testing: Participate in testnet validation
+Feedback: Provide feedback during review period
+Monitoring Tools
+Implementation Tracking: Monitor current and proposed implementations
+Deadline Alerts: Set up notifications for upgrade deadlines
+Change Analysis: Analyze differences between implementations
+Community Discussion: Participate in upgrade discussions
+Best Practices
+Upgrade Planning
+Thorough Testing: Comprehensive testing on testnets
+Security Audits: Professional security audits before proposal
+Community Engagement: Early community involvement and feedback
+Documentation: Complete documentation of changes and rationale
+Emergency Procedures: Clear procedures for upgrade cancellation
+Operational Security
+Admin Key Security: Secure storage and management of admin keys
+Monitoring Systems: Automated monitoring of upgrade proposals
+Response Procedures: Defined procedures for security issues
+Community Coordination: Clear communication channels with community
+Development Lifecycle
+Design Phase: Community input on upgrade requirements
+Development Phase: Transparent development with regular updates
+Testing Phase: Comprehensive testing including security testing
+Review Phase: Community review and feedback incorporation
+Deployment Phase: Careful execution with monitoring
+
+https://www.evvm.info/docs/EVVM/TreasuryFunctions
+
+
+Treasury Functions
+The EVVM contract includes specialized functions that can only be called by the authorized Treasury contract. These functions provide controlled access to user balance management for treasury operations such as deposits, withdrawals, and automated distributions.
+
+Treasury Authorization Required
+These functions will revert with SenderIsNotTreasury() if called by any address other than the authorized treasury contract.
+
+addAmountToUser
+Function Type: external
+Function Signature: addAmountToUser(address,address,uint256)
+
+Adds tokens to a user's balance in the EVVM system. This function is used by the treasury for deposit operations and reward distributions.
+
+Parameters
+Field	Type	Description
+user	address	Address of the user to receive the balance
+token	address	Address of the token contract
+amount	uint256	Amount of tokens to add to the user's balance
+Workflow
+Authorization Check: Validates that msg.sender is the authorized treasury contract, reverts with SenderIsNotTreasury() if unauthorized
+Balance Update: Directly adds the specified amount to balances[user][token] mapping
+Immediate Effect: Balance change takes effect immediately within the EVVM system
+removeAmountFromUser
+Function Type: external
+Function Signature: removeAmountFromUser(address,address,uint256)
+
+Removes tokens from a user's balance in the EVVM system. This function is used by the treasury for withdrawal operations and fee deductions.
+
+Parameters
+Field	Type	Description
+user	address	Address of the user to remove balance from
+token	address	Address of the token contract
+amount	uint256	Amount of tokens to remove from the user's balance
+Workflow
+Authorization Check: Validates that msg.sender is the authorized treasury contract, reverts with SenderIsNotTreasury() if unauthorized
+Balance Update: Directly subtracts the specified amount from balances[user][token] mapping
+Underflow Risk: No underflow protection - treasury must ensure sufficient balance exists (Solidity 0.8+ will revert on underflow)
+Immediate Effect: Balance change takes effect immediately within the EVVM system
+
+
+
+
+

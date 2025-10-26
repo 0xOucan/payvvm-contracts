@@ -1,5 +1,8 @@
 {
   "dependencies": {
-    "@hyperlane-xyz/core": "^3.6.1"
+    "@hyperlane-xyz/core": "^3.6.1",
+    "dotenv": "^17.2.3",
+    "ethers": "^5.8.0",
+    "viem": "^2.38.3"
   }
 }

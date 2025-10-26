@@ -11,13 +11,13 @@ ANVIL_ARGS := --rpc-url http://localhost:8545 \
               --via-ir
 
 ARB_SEPOLIA_TESTNET_ARGS := --rpc-url $(RPC_URL_ARB_SEPOLIA) \
-                            --account defaultKey \
+                            --account monad-deployer \
                             --broadcast \
                             --verify \
                             --etherscan-api-key $(ETHERSCAN_API) \
 
 ETH_SEPOLIA_TESTNET_ARGS := --rpc-url $(RPC_URL_ETH_SEPOLIA) \
-                            --account defaultKey \
+                            --account monad-deployer \
                             --broadcast \
                             --verify \
                             --etherscan-api-key $(ETHERSCAN_API) \

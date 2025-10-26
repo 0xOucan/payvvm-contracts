@@ -1,0 +1,3 @@
+cast call 0x9486f6C9d28ECdd95aba5bfa6188Bbc104d89C3e \
+  --rpc-url $RPC_URL_ETH_SEPOLIA \
+  "getRewardAmount()(uint256)"
