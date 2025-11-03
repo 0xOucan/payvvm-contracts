@@ -255,6 +255,98 @@ function emergencyWithdraw(address token, uint256 amount) external onlyOwner
 
 ---
 
+## 💼 Payroll & Batch Payments (dispersePay)
+
+### Overview
+
+EVVM supports batch PYUSD payments through the `dispersePay()` function, enabling single-signature multi-recipient transfers for payroll, airdrops, and distribution workflows.
+
+### Status: ⚠️ Under Investigation
+
+The payvvm-frontend implementation of batch payments via `dispersePay()` is experiencing `InvalidSignature()` errors despite mathematically valid signatures. Extensive debugging has verified:
+
+- ✅ Signatures are mathematically valid (off-chain recovery passes)
+- ✅ Message construction matches EVVM specification exactly
+- ✅ Hash calculation (SHA256 of ABI-encoded recipients) is correct
+- ✅ Async nonce availability confirmed
+- ✅ User balance sufficient
+- ✅ Recipient amounts sum correctly
+- ✅ All addresses properly lowercased
+- ✅ priorityFlag=true (async nonces) to prevent race conditions
+
+**Yet on-chain execution reverts with `InvalidSignature()`.**
+
+### Signature Format
+
+```
+{evvmID},dispersePay,{recipientsHash},{token},{totalAmount},{priorityFee},{nonce},{priorityFlag},{executor}
+
+Where:
+- recipientsHash = sha256(abi.encode(DispersePayMetadata[]))
+- DispersePayMetadata = (uint256 amount, address to_address, string to_identity)
+- All addresses must be lowercase
+- priorityFlag: true (async) or false (sync)
+```
+
+**Example:**
+```
+1000,dispersePay,0x0e94b2e8096216bee7af2f861f9cd9470928c9629fce680fe1cebe6c7eb98950,0xcac524bca292aaade2df8a05cc58f0a65b1b3bb9,30000,0,26,true,0x0000000000000000000000000000000000000000
+```
+
+### Contract Function
+
+```solidity
+function dispersePay(
+    address from,
+    DispersePayMetadata[] memory toData,
+    address token,
+    uint256 amount,
+    uint256 priorityFee,
+    uint256 nonce,
+    bool priorityFlag,
+    address executor,
+    bytes memory signature
+) external
+```
+
+### Diagnostic Tools
+
+The payvvm-frontend includes command-line diagnostic tools for debugging dispersePay transactions:
+
+```bash
+# Analyze any dispersePay transaction
+npx tsx analyze-any-tx.ts <tx-hash>
+
+# Verify recipient amounts match declared total
+npx tsx analyze-recipients.ts <tx-hash>
+
+# Check async nonce availability
+npx tsx check-async-nonce.ts
+
+# Check user EVVM balance
+npx tsx check-evvm-balance.ts
+
+# Simulate contract signature verification
+npx tsx simulate-contract-verification.ts <tx-hash>
+```
+
+### Changes Made (payvvm-frontend)
+
+- Switched from synchronous to asynchronous nonces (`priorityFlag: false` → `true`)
+- Ensured consistent address lowercasing in signature construction
+- Added comprehensive debug logging in fisher executor
+- Created suite of diagnostic tools for verification
+
+### Next Steps
+
+- EVVM team investigation of contract signature verification logic
+- Comparison with working `pay()` (single-recipient) signature flow
+- Possible contract-side debugging or testnet re-deployment
+
+See `payvvm-frontend` repository for implementation details and diagnostic tools.
+
+---
+
 ## 🔧 Utility Scripts
 
 ### Check Faucet Status
